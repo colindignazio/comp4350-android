@@ -7,6 +7,3 @@ All source files related to the app are located in /src and /res.
 
 All test code for the project is located in comp4350.tests and comp4350.tests.business
 
-Run Compile.bat to clean the project and compile the code to run the project's tests
-
-Run RunUnitTests.bat to run all of the unit tests for the project and save the results in a text file.
