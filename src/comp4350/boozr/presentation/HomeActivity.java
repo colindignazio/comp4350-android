@@ -17,7 +17,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.content.SharedPreferences;
+import android.app.*;
+import android.content.*;
 
 import comp4350.boozr.application.Main;
 import comp4350.boozr.business.API;
@@ -26,6 +29,7 @@ import org.json.*;
 public class HomeActivity extends Activity 
 {
 	private SharedPreferences prefs;
+	private String searchType = "Beer";
     @Override
     protected void onCreate(Bundle savedInstanceState) 
     {
@@ -130,6 +134,94 @@ public class HomeActivity extends Activity
     	HomeActivity.this.startActivity(testIntent);
     }
 
+	public void search(View v) {
+		EditText searchText = (EditText)findViewById(R.id.searchText);
+		String searchString = searchText.getText().toString();
+		Intent searchIntent = new Intent(HomeActivity.this, SearchResultsActivity.class);
+
+		if(this.searchType.equals("Beer")) {
+			try {
+				String result = new API().execute("Beer/search", "searchToken", searchString).get();
+				try {
+					JSONObject jsonObject = new JSONObject(result);
+					String status = jsonObject.getString("status");
+					if(status.equals("200")) {
+						//Beer search results
+						searchIntent.putExtra("results", jsonObject.getString("searchResults"));
+						searchIntent.putExtra("resultType", "Beer");
+						HomeActivity.this.startActivity(searchIntent);
+					} else if(status.equals("400")) {
+						//No results found
+						new AlertDialog.Builder(HomeActivity.this)
+								.setTitle("No Results Found")
+								.setMessage("Your search query didn't return any results")
+								.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+									public void onClick(DialogInterface dialog, int which) {
+										// dismiss
+									}
+								})
+								.setIcon(android.R.drawable.ic_dialog_alert)
+								.show();
+					}
+				} catch(JSONException e) {
+					e.printStackTrace();
+				}
+			} catch(InterruptedException e) {
+
+			} catch(ExecutionException e) {
+				e.printStackTrace();
+			}
+		} else if(this.searchType.equals("User")) {
+			try {
+				String result = new API().execute("user/search/", "searchToken", searchString).get();
+				try {
+					JSONObject jsonObject = new JSONObject(result);
+					String status = jsonObject.getString("status");
+					if(status.equals("200")) {
+						//User search results
+						searchIntent.putExtra("results", jsonObject.getString("searchResults"));
+						searchIntent.putExtra("resultType", "User");
+						HomeActivity.this.startActivity(searchIntent);
+					} else if(status.equals("400")) {
+						//No results found
+						new AlertDialog.Builder(HomeActivity.this)
+								.setTitle("No Results Found")
+								.setMessage("Your search query didn't return any results")
+								.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+									public void onClick(DialogInterface dialog, int which) {
+										// dismiss
+									}
+								})
+								.setIcon(android.R.drawable.ic_dialog_alert)
+								.show();
+					}
+				} catch(JSONException e) {
+					e.printStackTrace();
+				}
+			} catch(InterruptedException e) {
+
+			} catch(ExecutionException e) {
+				e.printStackTrace();
+			}
+		} else {
+			//Error, neither user nor beer specified
+		}
+	}
+
+	public void searchTypeSelect(View v) {
+		boolean checked = ((RadioButton) v).isChecked();
+		switch(v.getId()) {
+			case R.id.beerRadio:
+				if (checked)
+					this.searchType = "Beer";
+					break;
+			case R.id.userRadio:
+				if (checked)
+					this.searchType = "User";
+					break;
+		}
+	}
+
 	public void logout(View v) {
 		try {
 			String sessionId = this.prefs.getString("sessionId", null);
@@ -217,6 +309,5 @@ public class HomeActivity extends Activity
 		} catch(ExecutionException e) {
 			e.printStackTrace();
 		}
-
 	}
 }
