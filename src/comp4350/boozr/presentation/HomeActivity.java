@@ -20,6 +20,7 @@ import android.widget.EditText;
 
 import comp4350.boozr.application.Main;
 import comp4350.boozr.business.API;
+import org.json.*;
 
 public class HomeActivity extends Activity 
 {
@@ -126,7 +127,13 @@ public class HomeActivity extends Activity
 
 		try {
 			String result = new API().execute("user/login", "userName", usernameString, "password", passwordString).get();
-			Log.d("A", result);
+			try {
+				JSONObject jsonObject = new JSONObject(result);
+				String status = jsonObject.getString("status");
+				Log.d("A", status);
+			} catch(JSONException e) {
+
+			}
 		} catch(InterruptedException e) {
 
 		} catch(ExecutionException e) {
