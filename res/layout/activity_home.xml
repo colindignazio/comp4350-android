@@ -67,10 +67,11 @@
         android:inputType="text" />
 
     <RadioGroup
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_below="@+id/searchText"
         android:layout_alignParentLeft="true"
+        android:layout_above="@+id/textView2"
         android:onClick="searchTypeSelect">
 
         <RadioButton
