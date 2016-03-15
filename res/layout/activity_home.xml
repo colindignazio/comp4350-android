@@ -8,15 +8,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".HomeActivity" >
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Login"
-        android:id="@+id/loginButton"
-        android:onClick="login"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
-
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -33,10 +24,9 @@
         android:inputType="textPassword"
         android:ems="10"
         android:id="@+id/passwordText"
-        android:layout_above="@+id/loginButton"
-        android:layout_alignLeft="@+id/usernameText"
-        android:layout_marginBottom="114dp"
-        android:hint="Password" />
+        android:hint="Password"
+        android:layout_below="@+id/usernameText"
+        android:layout_alignLeft="@+id/usernameText" />
 
     <Button
         android:layout_width="wrap_content"
@@ -105,7 +95,16 @@
         android:layout_height="wrap_content"
         android:text="Create Account"
         android:id="@+id/button5"
-        android:layout_alignBottom="@+id/loginButton"
-        android:layout_alignParentRight="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:id="@+id/button6"
+        android:onClick="login"
+        android:layout_above="@+id/button5"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
