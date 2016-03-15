@@ -16,7 +16,7 @@ public class Main
 
 	public static void startUp()
 	{
-		API api = new API();
+		/*API api = new API();
 		//HashMap<String, String> test = new HashMap<>();
 		//test.put("userId", "1");
 		try {
@@ -26,7 +26,7 @@ public class Main
 
 		} catch(ExecutionException e) {
 
-		}
+		}*/
 	}
 
 	public static void shutDown()
