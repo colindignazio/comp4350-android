@@ -89,13 +89,23 @@
             android:layout_height="wrap_content"
             android:text="Beer"
             android:id="@+id/beerRadio"
-            android:checked="true" />
+            android:checked="true"
+            android:onClick="searchTypeSelect" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="User"
-            android:id="@+id/userRadio" />
+            android:id="@+id/userRadio"
+            android:onClick="searchTypeSelect" />
     </RadioGroup>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create Account"
+        android:id="@+id/button5"
+        android:layout_alignBottom="@+id/loginButton"
+        android:layout_alignParentRight="true" />
 
 </RelativeLayout>
