@@ -52,12 +52,11 @@
         android:onClick="logout" />
 
     <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/searchText"
         android:layout_alignParentLeft="true"
-        android:onClick="searchTypeSelect"
-        android:layout_above="@+id/button3">
+        android:onClick="searchTypeSelect">
 
         <RadioButton
             android:layout_width="wrap_content"
