@@ -43,10 +43,18 @@ public class SearchResultsActivity extends Activity
 
                 }
 
-                ListView reviewsList = (ListView)findViewById(R.id.searchResults);
-                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, reviewArrayList );
+                if(resultType.equals("Beer")) {
+                    ListView reviewsList = (ListView)findViewById(R.id.searchResults);
+                    BeerAdapter adapter = new BeerAdapter(this,R.layout.beer_list_item, resultsArray,reviewArrayList);
+                    reviewsList.setAdapter(adapter);
+                } else {
+                    ListView reviewsList = (ListView)findViewById(R.id.searchResults);
+                    UserAdapter adapter = new UserAdapter(this,R.layout.user_list_item, resultsArray,reviewArrayList);
+                    reviewsList.setAdapter(adapter);
+                }
 
-                reviewsList.setAdapter(arrayAdapter);
+
+
             } catch(JSONException e) {
                 e.printStackTrace();
             }
