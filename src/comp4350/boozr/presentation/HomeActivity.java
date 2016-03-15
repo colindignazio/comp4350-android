@@ -222,6 +222,11 @@ public class HomeActivity extends Activity
 		}
 	}
 
+	public void createAccount(View v) {
+		Intent createAccountIntent = new Intent(HomeActivity.this, CreateAccountActivity.class);
+		HomeActivity.this.startActivity(createAccountIntent);
+	}
+
 	public void logout(View v) {
 		try {
 			String sessionId = this.prefs.getString("sessionId", null);
