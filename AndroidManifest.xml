@@ -37,6 +37,10 @@
             android:name="comp4350.boozr.presentation.SearchResultsActivity"
             android:label="Search" >
         </activity>
+        <activity
+            android:name="comp4350.boozr.presentation.CreateAccountActivity"
+            android:label="CreateAccount" >
+        </activity>
     </application>
 
 </manifest>

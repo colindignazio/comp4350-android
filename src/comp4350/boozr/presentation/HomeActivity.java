@@ -222,6 +222,11 @@ public class HomeActivity extends Activity
 		}
 	}
 
+	public void createAccount(View v) {
+		Intent createAccountIntent = new Intent(HomeActivity.this, CreateAccountActivity.class);
+		HomeActivity.this.startActivity(createAccountIntent);
+	}
+
 	public void logout(View v) {
 		try {
 			String sessionId = this.prefs.getString("sessionId", null);
@@ -237,7 +242,6 @@ public class HomeActivity extends Activity
 				} else {
 					//Login failed
 				}
-				Log.d("A", status);
 			} catch(JSONException e) {
 				e.printStackTrace();
 			}
@@ -266,7 +270,6 @@ public class HomeActivity extends Activity
 				} else {
 					//Login failed
 				}
-				Log.d("A", status);
 			} catch(JSONException e) {
 				e.printStackTrace();
 			}
@@ -291,16 +294,11 @@ public class HomeActivity extends Activity
 				if(status.equals("200")) {
 					//Login success
 					this.prefs.edit().putString("sessionId", jsonObject.getString("sessionId")).apply();
-					JSONObject user = jsonObject.getJSONObject("user");
 					Intent profileIntent = new Intent(HomeActivity.this, HomeActivity.class);
-					profileIntent.putExtra("username", user.getString("User_name"));
-					profileIntent.putExtra("email", user.getString("User_email"));
-					profileIntent.putExtra("location", user.getString("User_location"));
 					HomeActivity.this.startActivity(profileIntent);
 				} else {
 					//Login failed
 				}
-				Log.d("A", status);
 			} catch(JSONException e) {
 				e.printStackTrace();
 			}
