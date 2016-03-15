@@ -8,6 +8,9 @@
         android:minSdkVersion="15"
         android:targetSdkVersion="15" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -25,6 +28,18 @@
         <activity
             android:name="comp4350.boozr.presentation.TestActivity"
             android:label="@string/titleTestActivity" >
+        </activity>
+        <activity
+            android:name="comp4350.boozr.presentation.ProfileActivity"
+            android:label="Profile" >
+        </activity>
+        <activity
+            android:name="comp4350.boozr.presentation.SearchResultsActivity"
+            android:label="Search" >
+        </activity>
+        <activity
+            android:name="comp4350.boozr.presentation.CreateAccountActivity"
+            android:label="CreateAccount" >
         </activity>
     </application>
 

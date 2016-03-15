@@ -29,31 +29,64 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f090010;
-        public static final int buttonSubmit=0x7f09000f;
-        public static final int buttonTest=0x7f090001;
-        public static final int separator=0x7f090002;
-        public static final int textField=0x7f090005;
-        public static final int textField1=0x7f090003;
-        public static final int textField10=0x7f09000c;
-        public static final int textField11=0x7f09000d;
-        public static final int textField12=0x7f09000e;
-        public static final int textField2=0x7f090004;
-        public static final int textField4=0x7f090006;
-        public static final int textField5=0x7f090007;
-        public static final int textField6=0x7f090008;
-        public static final int textField7=0x7f090009;
-        public static final int textField8=0x7f09000a;
-        public static final int textField9=0x7f09000b;
-        public static final int textTitle=0x7f090000;
+        public static final int action_settings=0x7f09002b;
+        public static final int alc_header=0x7f090025;
+        public static final int beerRadio=0x7f09000e;
+        public static final int beer_alc=0x7f090026;
+        public static final int beer_rating=0x7f090029;
+        public static final int beer_type=0x7f090028;
+        public static final int button=0x7f09000a;
+        public static final int button2=0x7f090013;
+        public static final int button3=0x7f090014;
+        public static final int button4=0x7f090015;
+        public static final int button5=0x7f090010;
+        public static final int button6=0x7f090011;
+        public static final int buttonSubmit=0x7f090009;
+        public static final int emailText=0x7f090006;
+        public static final int locationText=0x7f090008;
+        public static final int location_header=0x7f090024;
+        public static final int passwordText=0x7f090004;
+        public static final int rating_header=0x7f090027;
+        public static final int reviewsList=0x7f090018;
+        public static final int searchResults=0x7f090019;
+        public static final int searchText=0x7f09000d;
+        public static final int separator=0x7f090000;
+        public static final int textField=0x7f09001a;
+        public static final int textField1=0x7f090001;
+        public static final int textField10=0x7f09001f;
+        public static final int textField11=0x7f090020;
+        public static final int textField12=0x7f090021;
+        public static final int textField2=0x7f090003;
+        public static final int textField4=0x7f090005;
+        public static final int textField5=0x7f09001b;
+        public static final int textField6=0x7f090007;
+        public static final int textField7=0x7f09001c;
+        public static final int textField8=0x7f09001d;
+        public static final int textField9=0x7f09001e;
+        public static final int textView=0x7f090012;
+        public static final int textView2=0x7f09000c;
+        public static final int textView3=0x7f09000b;
+        public static final int textView4=0x7f090016;
+        public static final int textView5=0x7f090017;
+        public static final int userRadio=0x7f09000f;
+        public static final int user_email=0x7f090023;
+        public static final int user_location=0x7f09002a;
+        public static final int user_name=0x7f090022;
+        public static final int usernameText=0x7f090002;
     }
     public static final class integer {
         public static final int Row=0x7f050000;
         public static final int TwoCols=0x7f050001;
     }
     public static final class layout {
-        public static final int activity_home=0x7f030000;
-        public static final int activity_test=0x7f030001;
+        public static final int activity_create_account=0x7f030000;
+        public static final int activity_home=0x7f030001;
+        public static final int activity_home_loggedin=0x7f030002;
+        public static final int activity_profile=0x7f030003;
+        public static final int activity_search_results=0x7f030004;
+        public static final int activity_test=0x7f030005;
+        public static final int beer_list_item=0x7f030006;
+        public static final int user_list_item=0x7f030007;
     }
     public static final class menu {
         public static final int meal_planner=0x7f080000;
