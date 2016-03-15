@@ -29,6 +29,14 @@
             android:name="comp4350.boozr.presentation.TestActivity"
             android:label="@string/titleTestActivity" >
         </activity>
+        <activity
+            android:name="comp4350.boozr.presentation.ProfileActivity"
+            android:label="Profile" >
+        </activity>
+        <activity
+            android:name="comp4350.boozr.presentation.SearchResultsActivity"
+            android:label="Search" >
+        </activity>
     </application>
 
 </manifest>
