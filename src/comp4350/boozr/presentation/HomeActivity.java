@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.concurrent.ExecutionException;
 
 import comp4350.boozr.R;
 import android.app.Activity;
@@ -11,11 +12,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
+
 import comp4350.boozr.application.Main;
-import comp4350.boozr.presentation.Messages;
+import comp4350.boozr.business.API;
 
 public class HomeActivity extends Activity 
 {
@@ -113,4 +117,21 @@ public class HomeActivity extends Activity
     	Intent testIntent = new Intent(HomeActivity.this, TestActivity.class);
     	HomeActivity.this.startActivity(testIntent);
     }
+
+	public void login(View v) {
+		EditText username = (EditText)findViewById(R.id.usernameText);
+		String usernameString = username.getText().toString();
+		EditText password = (EditText)findViewById(R.id.passwordText);
+		String passwordString = password.getText().toString();
+
+		try {
+			String result = new API().execute("user/login", "userName", usernameString, "password", passwordString).get();
+			Log.d("A", result);
+		} catch(InterruptedException e) {
+
+		} catch(ExecutionException e) {
+
+		}
+
+	}
 }
