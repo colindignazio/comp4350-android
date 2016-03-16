@@ -3,7 +3,9 @@ package comp4350.boozr.presentation;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Spinner;
@@ -77,19 +79,37 @@ public class SearchResultsActivity extends Activity
                     ListView reviewsList = (ListView)findViewById(R.id.searchResults);
                     BeerAdapter adapter = new BeerAdapter(this,R.layout.beer_list_item, resultsArray,reviewArrayList);
                     reviewsList.setAdapter(adapter);
+                    reviewsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position,
+                                                long id) {
+                            //Selection Code
+                            //setContentView(R.layout.activity_user);
+                        }
+                    });
                 } else {
                     Spinner spinner = (Spinner)findViewById(R.id.spinner_sortBy);
                     spinner.setVisibility(View.GONE);
                     ListView reviewsList = (ListView)findViewById(R.id.searchResults);
                     UserAdapter adapter = new UserAdapter(this,R.layout.user_list_item, resultsArray,reviewArrayList);
                     reviewsList.setAdapter(adapter);
+                    reviewsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position,
+                                                long id) {
+                            //Selection Code
+                            //setContentView(R.layout.activity_user);
+                        }
+                    });
                 }
-
-
 
             } catch(JSONException e) {
                 e.printStackTrace();
             }
         }
+    }
+
+    public void selectResult(View v) {
+        Log.d("A", "A");
     }
 }
