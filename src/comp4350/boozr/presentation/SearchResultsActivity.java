@@ -1,8 +1,12 @@
 package comp4350.boozr.presentation;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.ListView;
 import android.widget.ArrayAdapter;
@@ -10,6 +14,7 @@ import java.util.ArrayList;
 
 import org.json.*;
 
+import java.util.Collections;
 import java.util.List;
 
 import comp4350.boozr.R;
@@ -44,10 +49,37 @@ public class SearchResultsActivity extends Activity
                 }
 
                 if(resultType.equals("Beer")) {
+                    Spinner spinner = (Spinner)findViewById(R.id.spinner_sortBy);
+                    spinner.setVisibility(View.VISIBLE);
+                    spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                            switch(position){
+                                case 0:
+                                    break;
+                                case 1:
+                                    break;
+                                case 2:
+                                    break;
+                                case 3:
+                                    break;
+                                default:
+
+                            }
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parentView) {
+                            // your code here
+                        }
+
+                    });
                     ListView reviewsList = (ListView)findViewById(R.id.searchResults);
                     BeerAdapter adapter = new BeerAdapter(this,R.layout.beer_list_item, resultsArray,reviewArrayList);
                     reviewsList.setAdapter(adapter);
                 } else {
+                    Spinner spinner = (Spinner)findViewById(R.id.spinner_sortBy);
+                    spinner.setVisibility(View.GONE);
                     ListView reviewsList = (ListView)findViewById(R.id.searchResults);
                     UserAdapter adapter = new UserAdapter(this,R.layout.user_list_item, resultsArray,reviewArrayList);
                     reviewsList.setAdapter(adapter);

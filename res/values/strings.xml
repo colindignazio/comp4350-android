@@ -17,5 +17,12 @@
     <string name="field">Field</string>
     <string name="submit">Submit</string>
     <string name="titleTestActivity">Boozr: Test</string>
+
+    <string-array name="searchByFilters">
+        <item>Name</item>
+        <item>Brewery</item>
+        <item>Type</item>
+        <item>Alcohol</item>
+    </string-array>
     
 </resources>
