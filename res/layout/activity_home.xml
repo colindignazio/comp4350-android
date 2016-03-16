@@ -67,11 +67,10 @@
         android:inputType="text" />
 
     <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/searchText"
         android:layout_alignParentLeft="true"
-        android:layout_above="@+id/textView2"
         android:onClick="searchTypeSelect">
 
         <RadioButton
@@ -107,5 +106,15 @@
         android:onClick="login"
         android:layout_above="@+id/button5"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Advanced Search"
+        android:id="@+id/btn_advanced"
+        android:layout_below="@+id/button"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:onClick="advancedSearch"/>
 
 </RelativeLayout>

@@ -116,6 +116,11 @@ public class HomeActivity extends Activity
     	HomeActivity.this.startActivity(testIntent);
     }
 
+	public void advancedSearch(View v){
+		Intent advancedSearchIntent = new Intent(HomeActivity.this, AdvancedSearchActivity.class);
+		HomeActivity.this.startActivity(advancedSearchIntent);
+	}
+
 	public void search(View v) {
 		EditText searchText = (EditText)findViewById(R.id.searchText);
 		String searchString = searchText.getText().toString();
@@ -279,22 +284,7 @@ public class HomeActivity extends Activity
 					Intent profileIntent = new Intent(HomeActivity.this, HomeActivity.class);
 					HomeActivity.this.startActivity(profileIntent);
 				} else {
-			    	Context context = HomeActivity.this;
-					AlertDialog.Builder failedLoginBuilder = new AlertDialog.Builder(context);
-					failedLoginBuilder.setMessage("Username or password was incorrect");
-					failedLoginBuilder.setCancelable(true);
-
-					failedLoginBuilder.setPositiveButton(
-					    "Cancel",
-					    new DialogInterface.OnClickListener() {
-					        public void onClick(DialogInterface dialog, int id) {
-					            dialog.cancel();
-					        }
-					    });
-
-					AlertDialog failedLoginAlert = failedLoginBuilder.create();
-					failedLoginAlert.show();
-					
+					//Login failed
 				}
 			} catch(JSONException e) {
 				e.printStackTrace();
