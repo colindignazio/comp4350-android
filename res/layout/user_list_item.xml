@@ -5,6 +5,13 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="User Id"
+		android:visibility="invisible"
+        android:id="@+id/user_id" />
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:text="User Name"
         android:id="@+id/user_name"
         android:layout_alignParentTop="true"

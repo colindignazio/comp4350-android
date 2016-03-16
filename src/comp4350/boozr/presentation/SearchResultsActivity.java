@@ -18,8 +18,10 @@ import org.json.*;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 import comp4350.boozr.R;
+import comp4350.boozr.business.API;
 
 public class SearchResultsActivity extends Activity
 {
@@ -93,16 +95,38 @@ public class SearchResultsActivity extends Activity
                     ListView reviewsList = (ListView)findViewById(R.id.searchResults);
                     UserAdapter adapter = new UserAdapter(this,R.layout.user_list_item, resultsArray,reviewArrayList);
                     reviewsList.setAdapter(adapter);
+                    
                     reviewsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
-                        public void onItemClick(AdapterView<?> parent, View view, int position,
-                                                long id) {
-                            //Selection Code
-                            //setContentView(R.layout.activity_user);
-                        }
-                    });
-                }
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        	TextView userId = (TextView) view.findViewById(R.id.user_id);
+                        	String uid = (String) userId.getText();
+                        	
+                        	try {
+                    			String result = new API().execute("user/getUser", "userId", uid).get();
+                    			try {
+                    				JSONObject jsonObject = new JSONObject(result);
+                    				String status = jsonObject.getString("status");
+                    				if(status.equals("200")) {
+                    					//User found
+                    					JSONObject user = jsonObject.getJSONObject("user");
+                    					Intent profileIntent = new Intent(SearchResultsActivity.this, ProfileActivity.class);
+                    					profileIntent.putExtra("username", user.getString("User_name"));
+                    					profileIntent.putExtra("email", user.getString("User_email"));
+                    					profileIntent.putExtra("location", user.getString("User_location"));
+                    					SearchResultsActivity.this.startActivity(profileIntent);
+                    				}
+                    			} catch(JSONException e) {
+                    				e.printStackTrace();
+                    			}
+                    		} catch(InterruptedException e) {
 
+                    		} catch(ExecutionException e) {
+                    			e.printStackTrace();
+                    		}
+                        }
+                    }); 
+                }
             } catch(JSONException e) {
                 e.printStackTrace();
             }

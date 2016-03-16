@@ -32,6 +32,7 @@ public class UserAdapter extends ArrayAdapter {
     }
     static class UserHolder
     {
+    	TextView txtId;
         TextView txtName;
         TextView txtEmail;
         TextView txtLocation;
@@ -49,6 +50,7 @@ public class UserAdapter extends ArrayAdapter {
 
             holder = new UserHolder();
 
+            holder.txtId = (TextView)row.findViewById(R.id.user_id);
             holder.txtName = (TextView)row.findViewById(R.id.user_name);
             holder.txtEmail = (TextView)row.findViewById(R.id.user_email);
             holder.txtLocation = (TextView)row.findViewById(R.id.user_location);
@@ -60,10 +62,11 @@ public class UserAdapter extends ArrayAdapter {
         }
 
         try {
-            JSONObject beer = data.getJSONObject(position);
-            holder.txtName.setText(beer.getString("User_name"));
-            holder.txtEmail.setText(beer.getString("User_email"));
-            holder.txtLocation.setText(beer.getString("User_location"));
+            JSONObject user = data.getJSONObject(position);
+            holder.txtId.setText(user.getString("User_id"));
+            holder.txtName.setText(user.getString("User_name"));
+            holder.txtEmail.setText(user.getString("User_email"));
+            holder.txtLocation.setText(user.getString("User_location"));
 
 
         } catch (JSONException e) {
