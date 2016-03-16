@@ -44,6 +44,7 @@
             android:enabled="true"
             android:inputType="textNoSuggestions"
             android:hint="ExampleMan" />
+            <requestFocus />
 
         <TextView
             android:id="@+id/textField2"
@@ -67,7 +68,6 @@
             android:password="true"
             android:hint="Password">
 
-            <requestFocus />
         </EditText>
 
         <TextView
