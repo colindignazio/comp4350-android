@@ -279,7 +279,22 @@ public class HomeActivity extends Activity
 					Intent profileIntent = new Intent(HomeActivity.this, HomeActivity.class);
 					HomeActivity.this.startActivity(profileIntent);
 				} else {
-					//Login failed
+			    	Context context = HomeActivity.this;
+					AlertDialog.Builder failedLoginBuilder = new AlertDialog.Builder(context);
+					failedLoginBuilder.setMessage("Username or password was incorrect");
+					failedLoginBuilder.setCancelable(true);
+
+					failedLoginBuilder.setPositiveButton(
+					    "Cancel",
+					    new DialogInterface.OnClickListener() {
+					        public void onClick(DialogInterface dialog, int id) {
+					            dialog.cancel();
+					        }
+					    });
+
+					AlertDialog failedLoginAlert = failedLoginBuilder.create();
+					failedLoginAlert.show();
+					
 				}
 			} catch(JSONException e) {
 				e.printStackTrace();
