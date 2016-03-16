@@ -109,12 +109,6 @@ public class HomeActivity extends Activity
     		}
     	}
 	}
-    
-    public void buttonTestOnClick(View v)
-    {
-    	Intent testIntent = new Intent(HomeActivity.this, TestActivity.class);
-    	HomeActivity.this.startActivity(testIntent);
-    }
 
 	public void advancedSearch(View v){
 		Intent advancedSearchIntent = new Intent(HomeActivity.this, AdvancedSearchActivity.class);
@@ -239,7 +233,7 @@ public class HomeActivity extends Activity
 		}
 	}
 
-	public void loadUserProfile(View v) {
+	public void editUserProfile(View v) {
 		try {
 			String sessionId = this.prefs.getString("sessionId", null);
 			String result = new API().execute("user/getUserDetails", "sessionId", sessionId).get();
@@ -256,6 +250,34 @@ public class HomeActivity extends Activity
 					HomeActivity.this.startActivity(profileIntent);
 				} else {
 					//Login failed
+				}
+			} catch(JSONException e) {
+				e.printStackTrace();
+			}
+		} catch(InterruptedException e) {
+
+		} catch(ExecutionException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void loadUserProfile(View v) {
+		try {
+			String sessionId = this.prefs.getString("sessionId", null);
+			String result = new API().execute("user/getUserDetails", "sessionId", sessionId).get();
+			try {
+				JSONObject jsonObject = new JSONObject(result);
+				String status = jsonObject.getString("status");
+				if(status.equals("200")) {
+					//User found
+					JSONObject user = jsonObject.getJSONObject("user");
+					Intent userIntent = new Intent(HomeActivity.this, UserActivity.class);
+					userIntent.putExtra("username", user.getString("User_name"));
+					userIntent.putExtra("email", user.getString("User_email"));
+					userIntent.putExtra("location", user.getString("User_location"));
+					HomeActivity.this.startActivity(userIntent);
+				} else {
+					Messages.fatalError(this, "User was not found.");
 				}
 			} catch(JSONException e) {
 				e.printStackTrace();

@@ -110,11 +110,11 @@ public class SearchResultsActivity extends Activity
                     				if(status.equals("200")) {
                     					//User found
                     					JSONObject user = jsonObject.getJSONObject("user");
-                    					Intent profileIntent = new Intent(SearchResultsActivity.this, ProfileActivity.class);
-                    					profileIntent.putExtra("username", user.getString("User_name"));
-                    					profileIntent.putExtra("email", user.getString("User_email"));
-                    					profileIntent.putExtra("location", user.getString("User_location"));
-                    					SearchResultsActivity.this.startActivity(profileIntent);
+                    					Intent userIntent = new Intent(SearchResultsActivity.this, UserActivity.class);
+                    					userIntent.putExtra("username", user.getString("User_name"));
+                    					userIntent.putExtra("email", user.getString("User_email"));
+                    					userIntent.putExtra("location", user.getString("User_location"));
+                    					SearchResultsActivity.this.startActivity(userIntent);
                     				}
                     			} catch(JSONException e) {
                     				e.printStackTrace();

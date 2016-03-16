@@ -45,6 +45,10 @@
             android:name="comp4350.boozr.presentation.AdvancedSearchActivity"
             android:label="AdvancedSearch" >
         </activity>
+        <activity
+            android:name="comp4350.boozr.presentation.UserActivity"
+            android:label="User" >
+        </activity>
     </application>
 
 </manifest>
