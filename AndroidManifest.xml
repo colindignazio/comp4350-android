@@ -49,6 +49,10 @@
             android:name="comp4350.boozr.presentation.UserActivity"
             android:label="User" >
         </activity>
+        <activity
+            android:name="comp4350.boozr.presentation.DrinkActivity"
+            android:label="Drink" >
+        </activity>
     </application>
 
 </manifest>

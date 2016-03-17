@@ -85,8 +85,39 @@ public class SearchResultsActivity extends Activity
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position,
                                                 long id) {
-                            //Selection Code
-                            //setContentView(R.layout.activity_user);
+                            TextView drinkid = (TextView) view.findViewById(R.id.drink_id);
+                        	String dId = (String) drinkid.getText();
+                        	Log.d("A", "Clicked");
+                        	
+                        	try {
+                    			String result = new API().execute("beer/searchById", "beverage_id", dId).get();
+                    			try {
+                    				Log.d("Debug", "API call succeeded, beverage id was " + dId);
+                    				JSONObject jsonObject = new JSONObject(result);
+                    				String status = jsonObject.getString("status");
+                    				Log.d("Debug", "Status " + status);
+                    				if(status.equals("200")) {
+                    					//User found
+                    					JSONArray drinkA = jsonObject.getJSONArray("results");
+                    					JSONObject drink = drinkA.getJSONObject(0);
+                    					Intent drinkIntent = new Intent(SearchResultsActivity.this, DrinkActivity.class);
+                    					drinkIntent.putExtra("drinkname", drink.getString("Name"));
+                    					drinkIntent.putExtra("type", drink.getString("Type"));
+                    					drinkIntent.putExtra("alc", drink.getString("Alcohol_By_Volume"));
+                    					drinkIntent.putExtra("rating", drink.getString("Rating"));
+                    					drinkIntent.putExtra("price", drink.getString("AvgPrice"));
+                    					drinkIntent.putExtra("brewery", drink.getString("Brewery"));
+                    					SearchResultsActivity.this.startActivity(drinkIntent);
+                    					
+                    				}
+                    			} catch(JSONException e) {
+                    				e.printStackTrace();
+                    			}
+                    		} catch(InterruptedException e) {
+
+                    		} catch(ExecutionException e) {
+                    			e.printStackTrace();
+                    		}
                         }
                     });
                 } else {

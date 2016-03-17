@@ -32,6 +32,7 @@ public class BeerAdapter extends ArrayAdapter {
     }
     static class BeerHolder
     {
+    	TextView txtId;
         TextView txtName;
         TextView txtBrewery;
         TextView txtType;
@@ -51,9 +52,10 @@ public class BeerAdapter extends ArrayAdapter {
             row = inflater.inflate(layoutResourceId, parent, false);
 
             holder = new BeerHolder();
-
-            holder.txtName = (TextView)row.findViewById(R.id.user_name);
-            holder.txtBrewery = (TextView)row.findViewById(R.id.user_email);
+            
+            holder.txtId = (TextView)row.findViewById(R.id.drink_id);
+            holder.txtName = (TextView)row.findViewById(R.id.beer_name);
+            holder.txtBrewery = (TextView)row.findViewById(R.id.brewery_name);
             holder.txtType = (TextView)row.findViewById(R.id.beer_type);
             holder.txtAlc = (TextView)row.findViewById(R.id.beer_alc);
             holder.txtrating = (TextView)row.findViewById(R.id.beer_rating);
@@ -68,6 +70,7 @@ public class BeerAdapter extends ArrayAdapter {
 
         try {
             JSONObject beer = data.getJSONObject(position);
+            holder.txtId.setText(beer.getString("Beer_id"));
             holder.txtName.setText(beer.getString("Name"));
             holder.txtBrewery.setText(beer.getString("Brewery"));
             holder.txtType.setText(beer.getString("Type"));

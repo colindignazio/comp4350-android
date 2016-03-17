@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Drink Id"
+		android:visibility="invisible"
+        android:id="@+id/drink_id" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Beer Name"
-        android:id="@+id/user_name"
+        android:id="@+id/beer_name"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:textSize="24dp"
@@ -21,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Beer Brewery"
-        android:id="@+id/user_email"
+        android:id="@+id/brewery_name"
         android:textSize="18dp"
         android:paddingLeft="8dp"
         android:paddingTop="4dp"
@@ -29,7 +36,7 @@
         android:paddingBottom="8dp"
         android:maxLines="1"
         android:ellipsize="end"
-        android:layout_below="@+id/user_name"
+        android:layout_below="@+id/beer_name"
         android:layout_alignParentLeft="true" />
 
     <TextView
@@ -37,7 +44,7 @@
         android:layout_height="wrap_content"
         android:text="Type: "
         android:id="@+id/location_header"
-        android:layout_below="@+id/user_email"
+        android:layout_below="@+id/brewery_name"
         android:layout_alignParentLeft="true"
         android:paddingLeft="8dp" />
 
