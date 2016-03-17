@@ -70,4 +70,22 @@ public class DrinkActivity extends Activity {
         this.beerId = beerId;
         this.userId = userId;
     }
+
+    public void reviewBeer(View v) {
+        EditText searchText = (EditText)findViewById(R.id.searchText);
+        String searchString = searchText.getText().toString();
+        Intent reviewDrinkIntent = new Intent(DrinkActivity.this, ReviewBeerActivity.class);
+
+        reviewDrinkIntent.putExtra("drinkname", drink.getString("Name"));
+        reviewDrinkIntent.putExtra("type", drink.getString("Type"));
+        reviewDrinkIntent.putExtra("alc", drink.getString("Alcohol_By_Volume"));
+        reviewDrinkIntent.putExtra("rating", drink.getString("Rating"));
+        reviewDrinkIntent.putExtra("price", drink.getString("AvgPrice"));
+        reviewDrinkIntent.putExtra("brewery", drink.getString("Brewery"));
+        reviewDrinkIntent.putExtra("beerId", drink.getString("Beer_id"));
+        reviewDrinkIntent.putExtra("userId", userId);
+
+        SearchResultsActivity.this.startActivity(reviewDrinkIntent);
+    }
+
 }

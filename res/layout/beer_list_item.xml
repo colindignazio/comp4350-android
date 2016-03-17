@@ -96,6 +96,7 @@
         android:layout_height="wrap_content"
         android:text="Review Beer"
         android:id="@+id/ReviewButton"
+        android:onClick="reviewBeer"
         android:layout_alignParentBottom="true"
         android:layout_toLeftOf="@+id/beer_rating"
         android:layout_toStartOf="@+id/beer_rating"
