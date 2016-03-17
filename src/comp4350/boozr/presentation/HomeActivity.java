@@ -306,7 +306,7 @@ public class HomeActivity extends Activity
 					Intent profileIntent = new Intent(HomeActivity.this, HomeActivity.class);
 					HomeActivity.this.startActivity(profileIntent);
 				} else {
-					//Login failed
+					Messages.warning(this, "Invalid username or password.");
 				}
 			} catch(JSONException e) {
 				e.printStackTrace();

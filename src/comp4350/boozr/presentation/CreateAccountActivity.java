@@ -59,7 +59,7 @@ public class CreateAccountActivity extends Activity
                     Intent homeIntent = new Intent(CreateAccountActivity.this, HomeActivity.class);
                     CreateAccountActivity.this.startActivity(homeIntent);
                 } else {
-                    //Account create failed
+                    Messages.warning(this, "Account could not be created.");
                 }
             } catch(JSONException e) {
                 e.printStackTrace();
