@@ -11,12 +11,13 @@ public class AllTests
     public static Test suite()
     {
         suite = new TestSuite("All tests");
-        testBusiness();
+        testEndToEnd();
         return suite;
     }
 
-    private static void testBusiness()
+    private static void testEndToEnd()
     {
-        suite.addTestSuite(SomethingToTestTest.class);
+        suite.addTestSuite(SearchTest.class);
+        suite.addTestSuite(UserTest.class);
     }
 }

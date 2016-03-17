@@ -46,24 +46,26 @@ public class UserActivity extends Activity
             email = extras.getString("email");
             location = extras.getString("location");
             reviewsArray = extras.getString("reviews");
-            
-            try{
-            	JSONArray reviews = new JSONArray(reviewsArray);
-            	JSONObject review;
-            	//Log.d("Debug", "User Reviews from User Activity " + reviews.toString());
-            	ArrayList<String> items = new ArrayList<String>();
-            	for(int i = 0; i < reviews.length(); i++){
-            		review = reviews.getJSONObject(i);
-            		String text = review.getString("review");
-            		items.add(text);
-            	}
-            	ArrayAdapter<String> reviewsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, items);
-                ListView reviewsListView = (ListView)findViewById(R.id.reviewsList);
-                reviewsListView.setAdapter(reviewsAdapter);
+
+        	if(reviewsArray != null) {
+        		try{
+            		JSONArray reviews = new JSONArray(reviewsArray);
+            		JSONObject review;
+            		//Log.d("Debug", "User Reviews from User Activity " + reviews.toString());
+            		ArrayList<String> items = new ArrayList<String>();
+            		for(int i = 0; i < reviews.length(); i++){
+            			review = reviews.getJSONObject(i);
+            			String text = review.getString("review");
+            			items.add(text);
+            		}
+            		ArrayAdapter<String> reviewsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, items);
+                	ListView reviewsListView = (ListView)findViewById(R.id.reviewsList);
+                	reviewsListView.setAdapter(reviewsAdapter);
             	
-            } catch (JSONException e){
-            	e.printStackTrace();
-            }
+            	} catch (JSONException e){
+            		e.printStackTrace();
+            	}
+        	}
             
             
         }

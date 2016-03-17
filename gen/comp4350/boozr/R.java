@@ -34,14 +34,15 @@ public final class R {
     public static final class id {
         public static final int Button01=0x7f090032;
         public static final int alcText=0x7f090022;
-        public static final int alc_header=0x7f090044;
+        public static final int alc_header=0x7f09003d;
         public static final int beerRadio=0x7f090028;
-        public static final int beer_alc=0x7f090045;
-        public static final int beer_name=0x7f090041;
-        public static final int beer_rating=0x7f090048;
-        public static final int beer_type=0x7f090047;
+        public static final int beer_alc=0x7f09003e;
+        public static final int beer_name=0x7f090039;
+        public static final int beer_price=0x7f090042;
+        public static final int beer_rating=0x7f090040;
+        public static final int beer_type=0x7f09003c;
         public static final int breweryText=0x7f090021;
-        public static final int brewery_name=0x7f090042;
+        public static final int brewery_name=0x7f09003a;
         public static final int btn_advanced=0x7f09002c;
         public static final int btn_search=0x7f090011;
         public static final int button=0x7f090024;
@@ -53,7 +54,7 @@ public final class R {
         public static final int button7=0x7f090031;
         public static final int buttonSubmit=0x7f09001b;
         public static final int drinkTypeText=0x7f09001d;
-        public static final int drink_id=0x7f090040;
+        public static final int drink_id=0x7f090038;
         public static final int drinknameText=0x7f09001c;
         public static final int emailText=0x7f090018;
         public static final int input_alc=0x7f090008;
@@ -64,12 +65,14 @@ public final class R {
         public static final int input_min_rating=0x7f09000e;
         public static final int input_name=0x7f090002;
         public static final int input_type=0x7f090006;
+        public static final int label_spinner=0x7f090036;
         public static final int locationText=0x7f09001a;
-        public static final int location_header=0x7f090043;
+        public static final int location_header=0x7f09003b;
         public static final int passwordText=0x7f090016;
         public static final int priceText=0x7f090023;
+        public static final int price_header=0x7f090041;
         public static final int ratingText=0x7f09001e;
-        public static final int rating_header=0x7f090046;
+        public static final int rating_header=0x7f09003f;
         public static final int reviewsList=0x7f09001f;
         public static final int saveButton=0x7f090034;
         public static final int scrollView=0x7f090000;
@@ -77,24 +80,15 @@ public final class R {
         public static final int searchText=0x7f090027;
         public static final int separator=0x7f090012;
         public static final int spinner_sortBy=0x7f090035;
-        public static final int textField=0x7f090038;
         public static final int textField1=0x7f090013;
-        public static final int textField10=0x7f09003d;
-        public static final int textField11=0x7f09003e;
-        public static final int textField12=0x7f09003f;
         public static final int textField2=0x7f090015;
         public static final int textField4=0x7f090017;
-        public static final int textField5=0x7f090039;
         public static final int textField6=0x7f090019;
-        public static final int textField7=0x7f09003a;
-        public static final int textField8=0x7f09003b;
-        public static final int textField9=0x7f09003c;
         public static final int textView=0x7f09002d;
         public static final int textView10=0x7f090009;
         public static final int textView11=0x7f09000b;
         public static final int textView12=0x7f09000d;
         public static final int textView13=0x7f09000f;
-        public static final int textView14=0x7f090036;
         public static final int textView2=0x7f090026;
         public static final int textView3=0x7f090025;
         public static final int textView4=0x7f090033;
@@ -104,10 +98,10 @@ public final class R {
         public static final int textView8=0x7f090005;
         public static final int textView9=0x7f090007;
         public static final int userRadio=0x7f090029;
-        public static final int user_email=0x7f09004b;
-        public static final int user_id=0x7f090049;
-        public static final int user_location=0x7f09004c;
-        public static final int user_name=0x7f09004a;
+        public static final int user_email=0x7f090045;
+        public static final int user_id=0x7f090043;
+        public static final int user_location=0x7f090046;
+        public static final int user_name=0x7f090044;
         public static final int usernameText=0x7f090014;
     }
     public static final class integer {
@@ -122,10 +116,9 @@ public final class R {
         public static final int activity_home_loggedin=0x7f030004;
         public static final int activity_profile=0x7f030005;
         public static final int activity_search_results=0x7f030006;
-        public static final int activity_test=0x7f030007;
-        public static final int activity_user=0x7f030008;
-        public static final int beer_list_item=0x7f030009;
-        public static final int user_list_item=0x7f03000a;
+        public static final int activity_user=0x7f030007;
+        public static final int beer_list_item=0x7f030008;
+        public static final int user_list_item=0x7f030009;
     }
     public static final class string {
         public static final int action_settings=0x7f060001;
