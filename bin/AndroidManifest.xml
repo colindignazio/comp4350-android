@@ -35,7 +35,7 @@
         </activity>
         <activity
             android:name="comp4350.boozr.presentation.SearchResultsActivity"
-            android:label="Search" >
+            android:label="Search Results" >
         </activity>
         <activity
             android:name="comp4350.boozr.presentation.CreateAccountActivity"

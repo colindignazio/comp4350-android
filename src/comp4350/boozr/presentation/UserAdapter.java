@@ -24,7 +24,7 @@ public class UserAdapter extends ArrayAdapter {
     int layoutResourceId;
     JSONArray data = null;
 
-    public UserAdapter(Context context, int layoutResourceId, JSONArray data, List<String> userArrayList) throws JSONException {
+    public UserAdapter(Context context, int layoutResourceId, JSONArray data, List<String> userArrayList)  {
         super(context, layoutResourceId, userArrayList);
         this.layoutResourceId = layoutResourceId;
         this.context = context;

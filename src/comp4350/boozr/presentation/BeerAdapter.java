@@ -24,12 +24,13 @@ public class BeerAdapter extends ArrayAdapter {
     int layoutResourceId;
     JSONArray data = null;
 
-    public BeerAdapter(Context context, int layoutResourceId, JSONArray data, List<String> beerArrayList) throws JSONException {
+    public BeerAdapter(Context context, int layoutResourceId, JSONArray data, List<String> beerArrayList){
         super(context, layoutResourceId, beerArrayList);
         this.layoutResourceId = layoutResourceId;
         this.context = context;
         this.data = data;
     }
+    
     static class BeerHolder
     {
     	TextView txtId;
@@ -37,9 +38,12 @@ public class BeerAdapter extends ArrayAdapter {
         TextView txtBrewery;
         TextView txtType;
         TextView txtAlc;
-        TextView txtrating;
+        TextView txtRating;
+        TextView txtPrice;
 
     }
+    
+    
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent)  {
@@ -58,7 +62,8 @@ public class BeerAdapter extends ArrayAdapter {
             holder.txtBrewery = (TextView)row.findViewById(R.id.brewery_name);
             holder.txtType = (TextView)row.findViewById(R.id.beer_type);
             holder.txtAlc = (TextView)row.findViewById(R.id.beer_alc);
-            holder.txtrating = (TextView)row.findViewById(R.id.beer_rating);
+            holder.txtRating = (TextView)row.findViewById(R.id.beer_rating);
+            holder.txtPrice = (TextView)row.findViewById(R.id.beer_price);
 
 
             row.setTag(holder);
@@ -75,7 +80,8 @@ public class BeerAdapter extends ArrayAdapter {
             holder.txtBrewery.setText(beer.getString("Brewery"));
             holder.txtType.setText(beer.getString("Type"));
             holder.txtAlc.setText(beer.getString("Alcohol_By_Volume"));
-            holder.txtrating.setText(beer.getString("Rating"));
+            holder.txtRating.setText(beer.getString("Rating"));
+            holder.txtPrice.setText(beer.getString("AvgPrice"));
 
         } catch (JSONException e) {
             e.printStackTrace();

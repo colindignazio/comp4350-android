@@ -23,6 +23,8 @@
         <item>Brewery</item>
         <item>Type</item>
         <item>Alcohol</item>
+        <item>Rating</item>
+        <item>Price</item>
     </string-array>
     
 </resources>
