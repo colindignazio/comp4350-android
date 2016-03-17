@@ -147,7 +147,8 @@ public class SearchResultsActivity extends Activity
             					drinkIntent.putExtra("rating", drink.getString("Rating"));
             					drinkIntent.putExtra("price", drink.getString("AvgPrice"));
             					drinkIntent.putExtra("brewery", drink.getString("Brewery"));
-            					SearchResultsActivity.this.startActivity(drinkIntent);
+                                drinkIntent.putExtra("userId", userId);
+                                SearchResultsActivity.this.startActivity(drinkIntent);
             					
             				}
             			} catch(JSONException e) {
@@ -209,28 +210,27 @@ public class SearchResultsActivity extends Activity
 				jsonList.add(resultsArray.getJSONObject(i));
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-    	}
-    	Collections.sort( jsonList, new Comparator<JSONObject>() {
+                e.printStackTrace();
+            }
+        }
+        Collections.sort(jsonList, new Comparator<JSONObject>() {
 
-    	    public int compare(JSONObject a, JSONObject b) {
-    	        String valA = new String();
-    	        String valB = new String();
+            public int compare(JSONObject a, JSONObject b) {
+                String valA = new String();
+                String valB = new String();
 
-    	        try {
-    	            valA = (String) a.get(filter);
-    	            valB = (String) b.get(filter);
-    	        } 
-    	        catch (JSONException e) {
-    	            //do something
-    	        }
-    	        
-    	        if(filter=="Alcohol_By_Volume" || filter=="Rating" ){
-    	        	//Return High to Low
-    	        	return valB.compareTo(valA);
-    	        } else {
-    	        	return valA.compareTo(valB);
+                try {
+                    valA = (String) a.get(filter);
+                    valB = (String) b.get(filter);
+                } catch (JSONException e) {
+                    //do something
+                }
+
+                if (filter == "Alcohol_By_Volume" || filter == "Rating") {
+                    //Return High to Low
+                    return valB.compareTo(valA);
+                } else {
+                    return valA.compareTo(valB);
     	        }
     	        	
     	        
