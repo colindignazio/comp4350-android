@@ -145,6 +145,8 @@ public class SearchResultsActivity extends Activity
                     					userIntent.putExtra("username", user.getString("User_name"));
                     					userIntent.putExtra("email", user.getString("User_email"));
                     					userIntent.putExtra("location", user.getString("User_location"));
+                    					//Log.d("Debug", "User Reviews from Search Results activity" + user.getString("reviews").toString());
+                    					userIntent.putExtra("reviews", user.getString("reviews").toString());
                     					SearchResultsActivity.this.startActivity(userIntent);
                     				}
                     			} catch(JSONException e) {
