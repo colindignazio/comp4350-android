@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.String;
 import java.util.concurrent.ExecutionException;
 
 import comp4350.boozr.R;
@@ -30,6 +31,7 @@ public class HomeActivity extends Activity
 {
 	private SharedPreferences prefs;
 	private String searchType = "Beer";
+	private String userId;
     @Override
     protected void onCreate(Bundle savedInstanceState) 
     {
@@ -130,6 +132,7 @@ public class HomeActivity extends Activity
 						//Beer search results
 						searchIntent.putExtra("results", jsonObject.getString("searchResults"));
 						searchIntent.putExtra("resultType", "Beer");
+						searchIntent.putExtra("userId", userId);
 						HomeActivity.this.startActivity(searchIntent);
 					} else if(status.equals("400")) {
 						//No results found
@@ -162,6 +165,7 @@ public class HomeActivity extends Activity
 						//User search results
 						searchIntent.putExtra("results", jsonObject.getString("searchResults"));
 						searchIntent.putExtra("resultType", "User");
+						searchIntent.putExtra("userId", userId)
 						HomeActivity.this.startActivity(searchIntent);
 					} else if(status.equals("400")) {
 						//No results found
@@ -219,6 +223,7 @@ public class HomeActivity extends Activity
 					//Logout success
 					this.prefs.edit().putString("sessionId", null).apply();
 					Intent homeIntent = new Intent(HomeActivity.this, HomeActivity.class);
+					userId=0;
 					HomeActivity.this.startActivity(homeIntent);
 				} else {
 					//Login failed
@@ -305,6 +310,7 @@ public class HomeActivity extends Activity
 					this.prefs.edit().putString("sessionId", jsonObject.getString("sessionId")).apply();
 					Intent profileIntent = new Intent(HomeActivity.this, HomeActivity.class);
 					HomeActivity.this.startActivity(profileIntent);
+					userId = jsonObject.getJSONObject("user").getString("User_id");
 				} else {
 					Messages.warning(this, "Invalid username or password.");
 				}

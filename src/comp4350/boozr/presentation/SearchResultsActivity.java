@@ -25,6 +25,7 @@ import comp4350.boozr.business.API;
 
 public class SearchResultsActivity extends Activity
 {
+    private String userId;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -39,6 +40,7 @@ public class SearchResultsActivity extends Activity
         if (extras != null) {
             resultType = extras.getString("resultType");
             results = extras.getString("results");
+            userId = extras.getString("userId");
 
             try {
                 resultsArray = new JSONArray(results);
@@ -107,8 +109,9 @@ public class SearchResultsActivity extends Activity
                     					drinkIntent.putExtra("rating", drink.getString("Rating"));
                     					drinkIntent.putExtra("price", drink.getString("AvgPrice"));
                     					drinkIntent.putExtra("brewery", drink.getString("Brewery"));
-                    					SearchResultsActivity.this.startActivity(drinkIntent);
-                    					
+                                        drinkIntent.putExtra("beerId", drink.getString("Beer_id"));
+                                        drinkIntent.putExtra("userId", userId);
+                                        SearchResultsActivity.this.startActivity(drinkIntent);
                     				}
                     			} catch(JSONException e) {
                     				e.printStackTrace();

@@ -91,4 +91,14 @@
         android:layout_alignParentRight="true"
         android:paddingRight="8dp" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Review Beer"
+        android:id="@+id/ReviewButton"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/beer_rating"
+        android:layout_toStartOf="@+id/beer_rating"
+        android:layout_marginBottom="25dp" />
+
 </RelativeLayout>

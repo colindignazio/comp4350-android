@@ -15,8 +15,9 @@ public class DrinkActivity extends Activity {
 	private String rating = "";
 	private String price = "";
 	private String brewery = "";
-	
-	
+    private String beerId = "";
+    private String userId ="";
+
 	@Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -30,6 +31,8 @@ public class DrinkActivity extends Activity {
         String rating = "Error rating not found";
     	String price = "Error price not found";
     	String brewery = "Error brewery not found";
+        String beerId = "Error beerId not found";
+        String UserId = "";
         String reviews = "{}";
         JSONArray reviewsArray;
         Bundle extras = getIntent().getExtras();
@@ -40,6 +43,8 @@ public class DrinkActivity extends Activity {
             rating = extras.getString("rating");
             price = extras.getString("price");
             brewery = extras.getString("brewery");
+            beerId = extras.getString("beerId");
+            userId = extras.getString("UserId");
         }
 
         TextView drinkNameTextView = (TextView)findViewById(R.id.drinknameText);
@@ -62,5 +67,7 @@ public class DrinkActivity extends Activity {
         this.rating = rating;
         this.price = price;
         this.brewery = brewery;
+        this.beerId = beerId;
+        this.userId = userId;
     }
 }
