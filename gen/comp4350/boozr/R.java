@@ -45,8 +45,6 @@ public final class R {
         public static final int brewery_name=0x7f09003b;
         public static final int btn_advanced=0x7f09002c;
         public static final int btn_search=0x7f090011;
-        public static final int button=0x7f090024;
-        public static final int button2=0x7f09002e;
         public static final int button3=0x7f09002f;
         public static final int button4=0x7f090030;
         public static final int button5=0x7f09002a;
@@ -79,6 +77,8 @@ public final class R {
         public static final int reviewsList=0x7f09001f;
         public static final int saveButton=0x7f090034;
         public static final int scrollView=0x7f090000;
+        public static final int searchButton=0x7f090024;
+        public static final int searchButtonLoggedIn=0x7f09002e;
         public static final int searchResults=0x7f090037;
         public static final int searchText=0x7f090027;
         public static final int separator=0x7f090012;

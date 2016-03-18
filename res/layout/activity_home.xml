@@ -29,14 +29,14 @@
         android:layout_alignLeft="@+id/usernameText" />
 
     <Button
+        android:id="@+id/searchButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Search"
-        android:id="@+id/button"
-        android:layout_marginTop="39dp"
-        android:layout_below="@+id/textView3"
         android:layout_alignParentRight="true"
-        android:onClick="search" />
+        android:layout_below="@+id/textView3"
+        android:layout_marginTop="39dp"
+        android:onClick="search"
+        android:text="Search" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -60,9 +60,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/searchText"
-        android:layout_alignBottom="@+id/button"
+        android:layout_alignBottom="@+id/searchButton"
         android:layout_alignParentLeft="true"
-        android:layout_toLeftOf="@+id/button"
+        android:layout_toLeftOf="@+id/searchButton"
         android:hint="Search"
         android:inputType="text" />
 
@@ -112,7 +112,7 @@
         android:layout_height="wrap_content"
         android:text="Advanced Search"
         android:id="@+id/btn_advanced"
-        android:layout_below="@+id/button"
+        android:layout_below="@+id/searchButton"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:onClick="advancedSearch"/>
