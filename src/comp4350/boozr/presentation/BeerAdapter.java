@@ -20,7 +20,7 @@ import java.util.List;
 /**
  * Created by David on 15/03/2016.
  */
-public class BeerAdapter extends ArrayAdapter {
+public class BeerAdapter extends ArrayAdapter<String> {
     Context context;
     int layoutResourceId;
     JSONArray data = null;

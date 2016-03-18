@@ -19,7 +19,7 @@ import comp4350.boozr.R;
 /**
  * Created by David on 15/03/2016.
  */
-public class UserAdapter extends ArrayAdapter {
+public class UserAdapter extends ArrayAdapter<String> {
     Context context;
     int layoutResourceId;
     JSONArray data = null;

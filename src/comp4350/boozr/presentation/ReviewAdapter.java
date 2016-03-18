@@ -17,7 +17,7 @@ import comp4350.boozr.R;
 import java.util.List;
 
 
-public class ReviewAdapter extends ArrayAdapter {
+public class ReviewAdapter extends ArrayAdapter<String> {
     Context context;
     int layoutResourceId;
     JSONArray data = null;

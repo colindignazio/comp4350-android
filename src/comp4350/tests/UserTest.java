@@ -2,7 +2,6 @@ package comp4350.tests;
 import com.robotium.solo.Solo;
 
 import android.content.Context;
-import android.preference.PreferenceManager;
 import android.test.ActivityInstrumentationTestCase2;
 import android.widget.EditText;
 import comp4350.boozr.R;
