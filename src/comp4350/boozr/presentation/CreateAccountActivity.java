@@ -19,14 +19,10 @@ public class CreateAccountActivity extends Activity
     private SharedPreferences prefs;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_create_account);
-
-        this.prefs = this.getSharedPreferences(
-                "com.boozr.app", Context.MODE_PRIVATE);
+        this.prefs = this.getSharedPreferences("com.boozr.app", Context.MODE_PRIVATE);
     }
 
     public void submitCreate(View v) {

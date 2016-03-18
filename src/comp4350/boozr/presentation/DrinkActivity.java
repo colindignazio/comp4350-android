@@ -14,7 +14,6 @@ import android.widget.TextView;
 import comp4350.boozr.R;
 
 public class DrinkActivity extends Activity {
-
 	private String drinkName = "";
 	private String type = "";
 	private String alc = "";
@@ -28,10 +27,8 @@ public class DrinkActivity extends Activity {
 	JSONArray reviewArray;
 	List<String> resultsList = new ArrayList<String>();
 	
-	
 	@Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_drink);
@@ -63,12 +60,10 @@ public class DrinkActivity extends Activity {
             	for(int i = 0; i < reviewArray.length(); i++) {
                     resultsList.add(reviewArray.getJSONObject(i).getString("review"));
                 }
-            	
             } catch(JSONException e) {
                 e.printStackTrace();
             }
             
-
         	if(reviewsArray != null) {        		
         		ListView reviewsList = (ListView)findViewById(R.id.reviewsList);
                 adapter = new ReviewAdapter(this,R.layout.review_list_item, reviewArray, resultsList);
@@ -114,5 +109,4 @@ public class DrinkActivity extends Activity {
 
         DrinkActivity.this.startActivity(reviewDrinkIntent);
     }
-
 }

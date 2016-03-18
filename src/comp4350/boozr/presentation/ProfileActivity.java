@@ -15,14 +15,12 @@ import java.util.concurrent.ExecutionException;
 import comp4350.boozr.R;
 import comp4350.boozr.business.API;
 
-public class ProfileActivity extends Activity
-{
+public class ProfileActivity extends Activity {
     private String username = "";
     private String location = "";
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_profile);
@@ -59,9 +57,7 @@ public class ProfileActivity extends Activity
                     .setTitle("No Fields Changed")
                     .setMessage("You have not changed any fields")
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            // dismiss
-                        }
+                        public void onClick(DialogInterface dialog, int which) {}
                     })
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .show();
@@ -81,33 +77,29 @@ public class ProfileActivity extends Activity
                             //update successful
                             this.username = username;
                             new AlertDialog.Builder(ProfileActivity.this)
-                                    .setTitle("Username Updated")
-                                    .setMessage("Your Username has been updated")
-                                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            // dismiss
-                                        }
+                            	.setTitle("Username Updated")
+                                .setMessage("Your Username has been updated")
+                                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {}
                                     })
-                                    .setIcon(android.R.drawable.ic_dialog_alert)
-                                    .show();
+                                .setIcon(android.R.drawable.ic_dialog_alert)
+                                .show();
                         } else if(status.equals("400")) {
                             //error updating
                             new AlertDialog.Builder(ProfileActivity.this)
-                                    .setTitle("Error Updating Username")
-                                    .setMessage("Your Username has not been updated, error: " + jsonObject.getString("details"))
-                                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            // dismiss
-                                        }
+                                .setTitle("Error Updating Username")
+                                .setMessage("Your Username has not been updated, error: " + jsonObject.getString("details"))
+                                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {}
                                     })
-                                    .setIcon(android.R.drawable.ic_dialog_alert)
-                                    .show();
+                                .setIcon(android.R.drawable.ic_dialog_alert)
+                                .show();
                         }
                     } catch(JSONException e) {
                         e.printStackTrace();
                     }
                 } catch(InterruptedException e) {
-
+                	e.printStackTrace();
                 } catch(ExecutionException e) {
                     e.printStackTrace();
                 }
@@ -124,33 +116,29 @@ public class ProfileActivity extends Activity
                             //update successful
                             this.location = location;
                             new AlertDialog.Builder(ProfileActivity.this)
-                                    .setTitle("Location Updated")
-                                    .setMessage("Your location has been updated")
-                                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            // dismiss
-                                        }
-                                    })
-                                    .setIcon(android.R.drawable.ic_dialog_alert)
-                                    .show();
+                                .setTitle("Location Updated")
+                                .setMessage("Your location has been updated")
+                                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {}
+                                })
+                                .setIcon(android.R.drawable.ic_dialog_alert)
+                                .show();
                         } else if(status.equals("400")) {
                             //error updating
                             new AlertDialog.Builder(ProfileActivity.this)
-                                    .setTitle("Error Updating Location")
-                                    .setMessage("Your location has not been updated, error: " + jsonObject.getString("details"))
-                                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            // dismiss
-                                        }
-                                    })
-                                    .setIcon(android.R.drawable.ic_dialog_alert)
-                                    .show();
+                                .setTitle("Error Updating Location")
+                                .setMessage("Your location has not been updated, error: " + jsonObject.getString("details"))
+                                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {}
+                                })
+                                .setIcon(android.R.drawable.ic_dialog_alert)
+                                .show();
                         }
                     } catch(JSONException e) {
                         e.printStackTrace();
                     }
                 } catch(InterruptedException e) {
-
+                	e.printStackTrace();
                 } catch(ExecutionException e) {
                     e.printStackTrace();
                 }

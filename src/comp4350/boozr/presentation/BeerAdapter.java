@@ -16,10 +16,6 @@ import comp4350.boozr.R;
 
 import java.util.List;
 
-
-/**
- * Created by David on 15/03/2016.
- */
 public class BeerAdapter extends ArrayAdapter<String> {
     Context context;
     int layoutResourceId;
@@ -32,8 +28,7 @@ public class BeerAdapter extends ArrayAdapter<String> {
         this.data = data;
     }
     
-    static class BeerHolder
-    {
+    static class BeerHolder {
     	TextView txtId;
         TextView txtName;
         TextView txtBrewery;
@@ -41,18 +36,14 @@ public class BeerAdapter extends ArrayAdapter<String> {
         TextView txtAlc;
         TextView txtRating;
         TextView txtPrice;
-
     }
-    
-    
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent)  {
+    public View getView(int position, View convertView, ViewGroup parent) {
         View row = convertView;
         BeerHolder holder = null;
 
-        if(row == null)
-        {
+        if(row == null) {
             LayoutInflater inflater = ((Activity)context).getLayoutInflater();
             row = inflater.inflate(layoutResourceId, parent, false);
 
@@ -66,14 +57,11 @@ public class BeerAdapter extends ArrayAdapter<String> {
             holder.txtRating = (TextView)row.findViewById(R.id.beer_rating);
             holder.txtPrice = (TextView)row.findViewById(R.id.beer_price);
 
-
             row.setTag(holder);
-        }
-        else
-        {
+        } else {
             holder = (BeerHolder)row.getTag();
         }
-
+        
         try {
             JSONObject beer = data.getJSONObject(position);
             holder.txtId.setText(beer.getString("Beer_id"));

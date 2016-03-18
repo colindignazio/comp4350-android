@@ -6,9 +6,6 @@ import java.io.*;
 import java.util.*;
 import android.os.AsyncTask;
 
-/**
- * Created by Mitchell on 16-03-14.
- */
 public class API extends AsyncTask<String, Void, String> {
     private String apiUrl = "http://54.200.14.217/?/";
 
@@ -40,7 +37,6 @@ public class API extends AsyncTask<String, Void, String> {
     }
 
     public String sendRequest(String method, HashMap<String, String> params) {
-
         URL url;
         String response = "";
         try {
@@ -70,10 +66,8 @@ public class API extends AsyncTask<String, Void, String> {
                 while ((line=br.readLine()) != null) {
                     response+=line;
                 }
-            }
-            else {
+            } else {
                 response="";
-
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -82,7 +76,7 @@ public class API extends AsyncTask<String, Void, String> {
         return response;
     }
 
-    private String paramsToString(HashMap<String, String> params) throws UnsupportedEncodingException{
+    private String paramsToString(HashMap<String, String> params) throws UnsupportedEncodingException {
         StringBuilder result = new StringBuilder();
         boolean first = true;
         for(Map.Entry<String, String> entry : params.entrySet()){

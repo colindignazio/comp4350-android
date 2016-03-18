@@ -42,25 +42,21 @@ public class AdvancedSearchActivity extends Activity {
                 } else if(status.equals("400")) {
                     //No results found
                     new AlertDialog.Builder(AdvancedSearchActivity.this)
-                            .setTitle("No Results Found")
-                            .setMessage("Your search query didn't return any results")
-                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int which) {
-                                    // dismiss
-                                }
-                            })
-                            .setIcon(android.R.drawable.ic_dialog_alert)
-                            .show();
+                    	.setTitle("No Results Found")
+                        .setMessage("Your search query didn't return any results")
+                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        	public void onClick(DialogInterface dialog, int which) {}
+                        })
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
                 }
             } catch(JSONException e) {
                 e.printStackTrace();
             }
         } catch(InterruptedException e) {
-
+        	e.printStackTrace();
         } catch(ExecutionException e) {
             e.printStackTrace();
         }
-
-
     }
 }

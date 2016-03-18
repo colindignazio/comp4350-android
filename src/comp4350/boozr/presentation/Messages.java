@@ -5,19 +5,15 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import comp4350.boozr.R;
 
-public class Messages 
-{
-    public static void fatalError(final Activity owner, String message) 
-    {
+public class Messages {
+    public static void fatalError(final Activity owner, String message) {
         AlertDialog alertDialog = new AlertDialog.Builder(owner).create();
 
         alertDialog.setTitle(owner.getString(R.string.fatalError));
         alertDialog.setMessage(message);
-        alertDialog.setOnCancelListener(new DialogInterface.OnCancelListener() 
-        {
+        alertDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
             @Override
-			public void onCancel(DialogInterface dialog) 
-            {
+			public void onCancel(DialogInterface dialog) {
             	owner.finish();
             }
         });
@@ -25,8 +21,7 @@ public class Messages
         alertDialog.show();
     }
 
-    public static void warning(Activity owner, String message) 
-    {
+    public static void warning(Activity owner, String message) {
         AlertDialog alertDialog = new AlertDialog.Builder(owner).create();
 
         alertDialog.setTitle(owner.getString(R.string.warning));

@@ -24,37 +24,29 @@ import comp4350.boozr.application.Main;
 import comp4350.boozr.business.API;
 import org.json.*;
 
-public class HomeActivity extends Activity 
-{
+public class HomeActivity extends Activity {
 	private SharedPreferences prefs;
 	private String searchType = "Beer";
     @Override
-    protected void onCreate(Bundle savedInstanceState) 
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         copyDatabaseToDevice();
-        
         Main.startUp();
 
-		this.prefs = this.getSharedPreferences(
-				"com.boozr.app", Context.MODE_PRIVATE);
+		this.prefs = this.getSharedPreferences("com.boozr.app", Context.MODE_PRIVATE);
 		String sessionId = prefs.getString("sessionId", null);
 
 		if(sessionId == null) {
-			//No previous session exists
 			setContentView(R.layout.activity_home);
 		} else {
-			//Previous session exists so get the users details
 			setContentView(R.layout.activity_home_loggedin);
 		}
     }
 
     @Override
-    protected void onDestroy() 
-    {
+    protected void onDestroy() {
         super.onDestroy();
-
         Main.shutDown();
     }
     
@@ -67,15 +59,11 @@ public class HomeActivity extends Activity
     	AssetManager assetManager = getAssets();
     	
     	try {
-
     		assetNames = assetManager.list(DB_PATH);
     		for (int i = 0; i < assetNames.length; i++) {
     			assetNames[i] = DB_PATH + "/" + assetNames[i];
     		}
-
     		copyAssetsToDirectory(assetNames, dataDirectory);
-    	
-
     	} catch (IOException ioe) {
     		Messages.warning(this, "Unable to access application data: " + ioe.getMessage());
     	}
@@ -132,21 +120,19 @@ public class HomeActivity extends Activity
 					} else if(status.equals("400")) {
 						//No results found
 						new AlertDialog.Builder(HomeActivity.this)
-								.setTitle("No Results Found")
-								.setMessage("Your search query didn't return any results")
-								.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-									public void onClick(DialogInterface dialog, int which) {
-										// dismiss
-									}
-								})
-								.setIcon(android.R.drawable.ic_dialog_alert)
-								.show();
+							.setTitle("No Results Found")
+							.setMessage("Your search query didn't return any results")
+							.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+								public void onClick(DialogInterface dialog, int which) {}
+							})
+							.setIcon(android.R.drawable.ic_dialog_alert)
+							.show();
 					}
 				} catch(JSONException e) {
 					e.printStackTrace();
 				}
 			} catch(InterruptedException e) {
-
+				e.printStackTrace();
 			} catch(ExecutionException e) {
 				e.printStackTrace();
 			}
@@ -164,26 +150,22 @@ public class HomeActivity extends Activity
 					} else if(status.equals("400")) {
 						//No results found
 						new AlertDialog.Builder(HomeActivity.this)
-								.setTitle("No Results Found")
-								.setMessage("Your search query didn't return any results")
-								.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-									public void onClick(DialogInterface dialog, int which) {
-										// dismiss
-									}
-								})
-								.setIcon(android.R.drawable.ic_dialog_alert)
-								.show();
+							.setTitle("No Results Found")
+							.setMessage("Your search query didn't return any results")
+							.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+								public void onClick(DialogInterface dialog, int which) {}
+							})
+							.setIcon(android.R.drawable.ic_dialog_alert)
+							.show();
 					}
 				} catch(JSONException e) {
 					e.printStackTrace();
 				}
 			} catch(InterruptedException e) {
-
+				e.printStackTrace();
 			} catch(ExecutionException e) {
 				e.printStackTrace();
 			}
-		} else {
-			//Error, neither user nor beer specified
 		}
 	}
 
@@ -221,25 +203,22 @@ public class HomeActivity extends Activity
 				} else if(status.equals("400")) {
 					//No results found
 					new AlertDialog.Builder(HomeActivity.this)
-							.setTitle("Error")
-							.setMessage("Server not responding")
-							.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-								public void onClick(DialogInterface dialog, int which) {
-									// dismiss
-								}
-							})
-							.setIcon(android.R.drawable.ic_dialog_alert)
-							.show();
+						.setTitle("Error")
+						.setMessage("Server not responding")
+						.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog, int which) {}
+						})
+						.setIcon(android.R.drawable.ic_dialog_alert)
+						.show();
 				}
 			} catch(JSONException e) {
 				e.printStackTrace();
 			}
 		} catch(InterruptedException e) {
-
+			e.printStackTrace();
 		} catch(ExecutionException e) {
 			e.printStackTrace();
 		}	
-		
 	}
 
 	public void logout(View v) {
@@ -254,14 +233,12 @@ public class HomeActivity extends Activity
 					this.prefs.edit().putString("sessionId", null).apply();
 					Intent homeIntent = new Intent(HomeActivity.this, HomeActivity.class);
 					HomeActivity.this.startActivity(homeIntent);
-				} else {
-					//Login failed
 				}
 			} catch(JSONException e) {
 				e.printStackTrace();
 			}
 		} catch(InterruptedException e) {
-
+			e.printStackTrace();
 		} catch(ExecutionException e) {
 			e.printStackTrace();
 		}
@@ -282,14 +259,12 @@ public class HomeActivity extends Activity
 					profileIntent.putExtra("email", user.getString("User_email"));
 					profileIntent.putExtra("location", user.getString("User_location"));
 					HomeActivity.this.startActivity(profileIntent);
-				} else {
-					//Login failed
 				}
 			} catch(JSONException e) {
 				e.printStackTrace();
 			}
 		} catch(InterruptedException e) {
-
+			e.printStackTrace();
 		} catch(ExecutionException e) {
 			e.printStackTrace();
 		}
@@ -317,7 +292,7 @@ public class HomeActivity extends Activity
 				e.printStackTrace();
 			}
 		} catch(InterruptedException e) {
-
+			e.printStackTrace();
 		} catch(ExecutionException e) {
 			e.printStackTrace();
 		}
@@ -346,7 +321,7 @@ public class HomeActivity extends Activity
 				e.printStackTrace();
 			}
 		} catch(InterruptedException e) {
-
+			e.printStackTrace();
 		} catch(ExecutionException e) {
 			e.printStackTrace();
 		}
