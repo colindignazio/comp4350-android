@@ -52,7 +52,6 @@ public class SearchResultsActivity extends Activity
             resultType = extras.getString("resultType");
             results = extras.getString("results");
             userId = extras.getString("userId");
-
             try {
                 resultsArray = new JSONArray(results);
                 
@@ -152,10 +151,9 @@ public class SearchResultsActivity extends Activity
             					drinkIntent.putExtra("rating", drink.getString("Rating"));
             					drinkIntent.putExtra("price", drink.getString("AvgPrice"));
             					drinkIntent.putExtra("brewery", drink.getString("Brewery"));
-            					drinkIntent.putExtra("reviews", reviewsArray.toString());
-            					SearchResultsActivity.this.startActivity(drinkIntent);
-            					
+            					drinkIntent.putExtra("reviews", reviewsArray.toString());            					
                                 drinkIntent.putExtra("userId", userId);
+                                drinkIntent.putExtra("beerId", drink.getString("Beer_id"));
                                 SearchResultsActivity.this.startActivity(drinkIntent);
             				}
             			} catch(JSONException e) {

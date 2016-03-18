@@ -239,6 +239,7 @@ public class HomeActivity extends Activity
 	}
 
 	public void editUserProfile(View v) {
+        Messages.warning(this, userId +", ");
 		try {
 			String sessionId = this.prefs.getString("sessionId", null);
 			String result = new API().execute("user/getUserDetails", "sessionId", sessionId).get();
@@ -252,6 +253,7 @@ public class HomeActivity extends Activity
 					profileIntent.putExtra("username", user.getString("User_name"));
 					profileIntent.putExtra("email", user.getString("User_email"));
 					profileIntent.putExtra("location", user.getString("User_location"));
+					userId = (jsonObject.getJSONObject("user")).getString("User_id");
 					HomeActivity.this.startActivity(profileIntent);
 				} else {
 					//Login failed
@@ -267,6 +269,7 @@ public class HomeActivity extends Activity
 	}
 	
 	public void loadUserProfile(View v) {
+        Messages.warning(this, userId +", ");
 		try {
 			String sessionId = this.prefs.getString("sessionId", null);
 			String result = new API().execute("user/getUserDetails", "sessionId", sessionId).get();
@@ -280,6 +283,7 @@ public class HomeActivity extends Activity
 					userIntent.putExtra("username", user.getString("User_name"));
 					userIntent.putExtra("email", user.getString("User_email"));
 					userIntent.putExtra("location", user.getString("User_location"));
+					userId = (jsonObject.getJSONObject("user")).getString("User_id");
 					HomeActivity.this.startActivity(userIntent);
 				} else {
 					Messages.fatalError(this, "User was not found.");
@@ -295,6 +299,8 @@ public class HomeActivity extends Activity
 	}
 
 	public void login(View v) {
+        Messages.warning(this, userId +", ");
+
 		EditText username = (EditText)findViewById(R.id.usernameText);
 		String usernameString = username.getText().toString();
 		EditText password = (EditText)findViewById(R.id.passwordText);
@@ -308,9 +314,9 @@ public class HomeActivity extends Activity
 				if(status.equals("200")) {
 					//Login success
 					this.prefs.edit().putString("sessionId", jsonObject.getString("sessionId")).apply();
+					userId = (jsonObject.getJSONObject("user")).getString("User_id");
 					Intent profileIntent = new Intent(HomeActivity.this, HomeActivity.class);
 					HomeActivity.this.startActivity(profileIntent);
-					userId = jsonObject.getJSONObject("user").getString("User_id");
 				} else {
 					Messages.warning(this, "Invalid username or password.");
 				}
