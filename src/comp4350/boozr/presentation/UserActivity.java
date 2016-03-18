@@ -71,8 +71,31 @@ public class UserActivity extends Activity
                     adapter = new ReviewAdapter(this,R.layout.review_list_item, reviewArray, resultsList);
                     reviewsList.setAdapter(adapter);
             	}
-        	}            
-        }
+        	}    
+        	
+        	try {
+        		String result = new API().execute("follow/getRecentReviews", "userId", userId).get();
+			
+				JSONObject jsonObject = new JSONObject(result);
+				String status = jsonObject.getString("status");
+				if(status.equals("200")) {
+			        JSONArray followingReviewArray = jsonObject.getJSONArray("details");
+			        List<String> followingResultsList = new ArrayList<String>();
+					
+                	for(int i = 0; i < followingReviewArray.length(); i++) {
+						followingResultsList.add(followingReviewArray.getJSONObject(i).getString("review"));
+                    }	
+                	
+                	if(!followingResultsList.isEmpty()) {        		
+                		ListView reviewsList = (ListView)findViewById(R.id.followingReviewsList);
+                        ReviewAdapter followingAdapter = new ReviewAdapter(this,R.layout.review_list_item, followingReviewArray, followingResultsList);
+                        reviewsList.setAdapter(followingAdapter);
+                	}
+				}
+        	} catch(Exception e) {
+        		e.printStackTrace();
+        	}
+		}
 
         TextView usernameTextView = (TextView)findViewById(R.id.usernameText);
         TextView emailTextView = (TextView)findViewById(R.id.emailText);
