@@ -73,7 +73,9 @@ public final class R {
         public static final int priceText=0x7f090023;
         public static final int price_header=0x7f090042;
         public static final int ratingText=0x7f09001e;
+        public static final int ratingTextView=0x7f090026;
         public static final int rating_header=0x7f090040;
+        public static final int reviewTextView=0x7f090045;
         public static final int reviewsList=0x7f09001f;
         public static final int saveButton=0x7f090034;
         public static final int scrollView=0x7f090000;
@@ -86,11 +88,11 @@ public final class R {
         public static final int textField4=0x7f090017;
         public static final int textField6=0x7f090019;
         public static final int textView=0x7f09002d;
+        public static final int textView1=0x7f090044;
         public static final int textView10=0x7f090009;
         public static final int textView11=0x7f09000b;
         public static final int textView12=0x7f09000d;
         public static final int textView13=0x7f09000f;
-        public static final int textView2=0x7f090026;
         public static final int textView3=0x7f090025;
         public static final int textView4=0x7f090033;
         public static final int textView5=0x7f090020;
@@ -99,10 +101,10 @@ public final class R {
         public static final int textView8=0x7f090005;
         public static final int textView9=0x7f090007;
         public static final int userRadio=0x7f090029;
-        public static final int user_email=0x7f090046;
-        public static final int user_id=0x7f090044;
-        public static final int user_location=0x7f090047;
-        public static final int user_name=0x7f090045;
+        public static final int user_email=0x7f090048;
+        public static final int user_id=0x7f090046;
+        public static final int user_location=0x7f090049;
+        public static final int user_name=0x7f090047;
         public static final int usernameText=0x7f090014;
     }
     public static final class integer {
@@ -119,7 +121,8 @@ public final class R {
         public static final int activity_search_results=0x7f030006;
         public static final int activity_user=0x7f030007;
         public static final int beer_list_item=0x7f030008;
-        public static final int user_list_item=0x7f030009;
+        public static final int review_list_item=0x7f030009;
+        public static final int user_list_item=0x7f03000a;
     }
     public static final class string {
         public static final int action_settings=0x7f060001;
