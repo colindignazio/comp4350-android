@@ -70,4 +70,18 @@ public class UserTest extends ActivityInstrumentationTestCase2<HomeActivity> {
 		solo.clickOnView(solo.getView(R.id.button4));
 		assertTrue(solo.waitForText("Login"));
 	}
+	public void testSaveNoChanges() throws Exception {
+		solo.assertCurrentActivity("wrong activity", HomeActivity.class);
+				
+		solo.enterText((EditText) solo.getView(R.id.usernameText),"e2euser");
+		solo.enterText((EditText) solo.getView(R.id.passwordText),"testpass");
+		solo.clickOnView(solo.getView(R.id.button6));
+		
+		assertTrue(solo.waitForText("Edit Account"));
+		solo.clickOnView(solo.getView(R.id.Button01));
+		assertTrue(solo.waitForText("Profile Info"));
+		assertTrue(solo.waitForText("Save"));
+		solo.clickOnView(solo.getView(R.id.saveButton));
+		assertTrue(solo.waitForText("You have not changed any fields"));
+	}
 }
