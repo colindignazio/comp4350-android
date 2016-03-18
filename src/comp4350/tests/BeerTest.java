@@ -37,6 +37,10 @@ public class BeerTest extends ActivityInstrumentationTestCase2<HomeActivity> {
     }
 
     public void testReviewBeer() throws Exception {
+		solo.enterText((EditText) solo.getView(R.id.usernameText),"e2euser");
+		solo.enterText((EditText) solo.getView(R.id.passwordText),"testpass");
+		solo.clickOnView(solo.getView(R.id.button6));
+		assertTrue(solo.waitForText("Logout"));
         solo.assertCurrentActivity("wrong activity", HomeActivity.class);
         solo.enterText((EditText) solo.getView(R.id.searchText), "grass");
         solo.clickOnView(solo.getView(R.id.beerRadio));
@@ -57,6 +61,9 @@ public class BeerTest extends ActivityInstrumentationTestCase2<HomeActivity> {
         solo.enterText((EditText) solo.getView(R.id.reviewText), "The beer was good");
 
         solo.clickOnView(solo.getView(R.id.PostReview));
+
+		solo.clickOnView(solo.getView(R.id.button4));
+		assertTrue(solo.waitForText("Login"));
     }
 
     public void testSortBeer() throws Exception {
