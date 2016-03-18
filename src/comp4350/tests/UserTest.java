@@ -96,6 +96,7 @@ public class UserTest extends ActivityInstrumentationTestCase2<HomeActivity> {
 	public void testChangeUsername() throws Exception {
 		Context context = getInstrumentation().getTargetContext();
 		context.getSharedPreferences("com.boozr.app", Context.MODE_PRIVATE).edit().clear().commit();
+		
 		solo.assertCurrentActivity("wrong activity", HomeActivity.class);
 
 		solo.enterText((EditText) solo.getView(R.id.usernameText), "e2euser");
