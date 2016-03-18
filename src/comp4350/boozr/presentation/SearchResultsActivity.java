@@ -65,8 +65,6 @@ public class SearchResultsActivity extends Activity
                     }
 
                 }
-
-                
             } catch(JSONException e) {
                 e.printStackTrace();
             }
@@ -128,16 +126,24 @@ public class SearchResultsActivity extends Activity
                 	Log.d("A", "Clicked");
                 	
                 	try {
-            			String result = new API().execute("beer/searchById", "beverage_id", dId).get();
+                		String beverage = new API().execute("beer/searchById", "beverage_id", dId).get();
+            			String reviews = new API().execute("BeerReview/getSpecificBeerReviews", "beer_id", dId).get();
             			try {
             				Log.d("Debug", "API call succeeded, beverage id was " + dId);
-            				JSONObject jsonObject = new JSONObject(result);
+            				JSONObject jsonObject = new JSONObject(beverage);
             				String status = jsonObject.getString("status");
+            				
+            				JSONObject reviewsObject = new JSONObject(reviews);
+            				String status2 = jsonObject.getString("status");
+            				
             				Log.d("Debug", "Status " + status);
-            				if(status.equals("200")) {
-            					//User found
+            				if(status.equals("200")&&status2.equals("200")) {
             					JSONArray drinkA = jsonObject.getJSONArray("results");
             					JSONObject drink = drinkA.getJSONObject(0);
+            					
+            					JSONArray reviewsArray = reviewsObject.getJSONArray("results");
+            					
+            					
             					Intent drinkIntent = new Intent(SearchResultsActivity.this, DrinkActivity.class);
             					drinkIntent.putExtra("drinkname", drink.getString("Name"));
             					drinkIntent.putExtra("type", drink.getString("Type"));
@@ -145,6 +151,7 @@ public class SearchResultsActivity extends Activity
             					drinkIntent.putExtra("rating", drink.getString("Rating"));
             					drinkIntent.putExtra("price", drink.getString("AvgPrice"));
             					drinkIntent.putExtra("brewery", drink.getString("Brewery"));
+            					drinkIntent.putExtra("reviews", reviewsArray.toString());
             					SearchResultsActivity.this.startActivity(drinkIntent);
             					
             				}
@@ -185,6 +192,7 @@ public class SearchResultsActivity extends Activity
             					userIntent.putExtra("username", user.getString("User_name"));
             					userIntent.putExtra("email", user.getString("User_email"));
             					userIntent.putExtra("location", user.getString("User_location"));
+            					userIntent.putExtra("reviews", user.getString("reviews").toString());
             					SearchResultsActivity.this.startActivity(userIntent);
             				}
             			} catch(JSONException e) {
