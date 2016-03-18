@@ -26,5 +26,7 @@
         <item>Rating</item>
         <item>Price</item>
     </string-array>
+    <string name="follow">Follow</string>
+    <string name="unfollow">Unfollow</string>
     
 </resources>

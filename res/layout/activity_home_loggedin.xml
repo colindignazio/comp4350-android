@@ -20,18 +20,18 @@
         android:layout_marginTop="105dp"
         android:layout_below="@+id/textView"
         android:layout_alignParentLeft="true"
-        android:layout_toLeftOf="@+id/button2"
+        android:layout_toLeftOf="@+id/searchButtonLoggedIn"
         android:hint="Search"
         android:inputType="text" />
 
     <Button
+        android:id="@+id/searchButtonLoggedIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Search"
-        android:id="@+id/button2"
         android:layout_alignBottom="@+id/searchText"
         android:layout_alignParentRight="true"
-        android:onClick="search" />
+        android:onClick="search"
+        android:text="Search" />
 
     <Button
         android:layout_width="wrap_content"

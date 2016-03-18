@@ -2,7 +2,6 @@ package comp4350.tests;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
-import comp4350.tests.business.SomethingToTestTest;
 
 public class AllTests
 {
@@ -11,12 +10,13 @@ public class AllTests
     public static Test suite()
     {
         suite = new TestSuite("All tests");
-        testBusiness();
+        testEndToEnd();
         return suite;
     }
 
-    private static void testBusiness()
+    private static void testEndToEnd()
     {
-        suite.addTestSuite(SomethingToTestTest.class);
+        suite.addTestSuite(SearchTest.class);
+        suite.addTestSuite(UserTest.class);
     }
 }

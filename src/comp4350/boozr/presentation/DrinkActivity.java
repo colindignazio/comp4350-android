@@ -1,11 +1,17 @@
 package comp4350.boozr.presentation;
 
+import java.util.ArrayList;
+
 import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import comp4350.boozr.R;
 
@@ -37,6 +43,7 @@ public class DrinkActivity extends Activity {
         String UserId = "";
         String reviews = "{}";
         JSONArray reviewsArray;
+        String reviewsArray;
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             drinkName = extras.getString("drinkname");
@@ -47,6 +54,32 @@ public class DrinkActivity extends Activity {
             brewery = extras.getString("brewery");
             beerId = extras.getString("beerId");
             userId = extras.getString("UserId");
+            
+            
+            reviewsArray = extras.getString("reviews");
+
+        	if(reviewsArray != null) {
+        		try{
+            		JSONArray reviews = new JSONArray(reviewsArray);
+            		JSONObject review;
+            		//Log.d("Debug", "User Reviews from User Activity " + reviews.toString());
+            		ArrayList<String> items = new ArrayList<String>();
+            		for(int i = 0; i < reviews.length(); i++){
+            			review = reviews.getJSONObject(i);
+            			String text = review.getString("review");
+            			items.add(text);
+            		}
+            		ArrayAdapter<String> reviewsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, items);
+                	ListView reviewsListView = (ListView)findViewById(R.id.reviewsList);
+                	reviewsListView.setAdapter(reviewsAdapter);
+            	
+            	} catch (JSONException e){
+            		e.printStackTrace();
+            	}
+        	}
+            
+            
+            
         }
 
         TextView drinkNameTextView = (TextView)findViewById(R.id.drinknameText);

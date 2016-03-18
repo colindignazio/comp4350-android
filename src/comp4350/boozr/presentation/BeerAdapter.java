@@ -12,9 +12,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import comp4350.boozr.R;
+
 import java.util.List;
 
-import comp4350.boozr.R;
 
 /**
  * Created by David on 15/03/2016.
