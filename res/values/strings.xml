@@ -34,5 +34,7 @@
     <string name="location">Location</string>
     <string name="email">Email</string>
     <string name="toggleButton">ToggleButton</string>
+    <string name="userId">User ID</string>
+    <string name="unknown">unknown</string>
     
 </resources>

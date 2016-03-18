@@ -161,7 +161,9 @@ public final class R {
         public static final int titleTestActivity=0x7f06000f;
         public static final int toggleButton=0x7f060017;
         public static final int unfollow=0x7f060011;
+        public static final int unknown=0x7f060019;
         public static final int update=0x7f060004;
+        public static final int userId=0x7f060018;
         public static final int username=0x7f060012;
         public static final int warning=0x7f060008;
     }

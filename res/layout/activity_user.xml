@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    android:layout_height="match_parent"
         android:layout_gravity="center_horizontal">
 
         <TextView
@@ -28,9 +24,9 @@
             android:layout_marginTop="60dp" />
 
         <ListView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/reviewsList"
+            android:layout_width="wrap_content"
+            android:layout_height="250dp"
             android:layout_below="@+id/textView5"
             android:layout_centerHorizontal="true" />
 
@@ -57,7 +53,9 @@
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/locationText"
             android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_marginRight="16dp"
+            android:layout_marginEnd="16dp"
             android:text="@string/toggleButton"
             android:textOff="@string/follow"
             android:textOn="@string/unfollow"
@@ -70,6 +68,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/usernameText"
+            android:layout_marginStart="21dp"
             android:layout_marginLeft="21dp"
             android:layout_marginTop="31dp"
             android:text="@string/email"
@@ -79,10 +78,10 @@
             android:id="@+id/locationText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/emailText"
             android:layout_alignLeft="@+id/emailText"
             android:layout_below="@+id/emailText"
             android:text="@string/location"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
     </RelativeLayout>
-</LinearLayout>

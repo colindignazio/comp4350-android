@@ -5,18 +5,19 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="User Id"
+        android:text="@string/userId"
 		android:visibility="invisible"
         android:id="@+id/user_id" />
     
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="User Name"
+        android:text="@string/username"
         android:id="@+id/user_name"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:textSize="24dp"
+        android:layout_alignParentStart="true"
+        android:textSize="24sp"
         android:paddingLeft="8dp"
         android:paddingTop="8dp"
         android:paddingRight="8dp"
@@ -27,9 +28,9 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Email"
+        android:text="@string/email"
         android:id="@+id/user_email"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:paddingLeft="8dp"
         android:paddingTop="4dp"
         android:paddingRight="8dp"
@@ -37,15 +38,19 @@
         android:maxLines="1"
         android:ellipsize="end"
         android:layout_below="@+id/user_name"
+        android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Location:"
+        android:text="@string/location"
         android:id="@+id/location_header"
         android:layout_below="@+id/user_email"
+        android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
         android:paddingLeft="8dp" />
 
     <TextView
@@ -54,7 +59,10 @@
         android:id="@+id/user_location"
         android:layout_below="@+id/location_header"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:paddingLeft="8dp"
-        android:text="unknown" />
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:text="@string/unknown" />
 
 </RelativeLayout>
