@@ -16,9 +16,6 @@ import java.util.List;
 
 import comp4350.boozr.R;
 
-/**
- * Created by David on 15/03/2016.
- */
 public class UserAdapter extends ArrayAdapter<String> {
     Context context;
     int layoutResourceId;
@@ -30,8 +27,8 @@ public class UserAdapter extends ArrayAdapter<String> {
         this.context = context;
         this.data = data;
     }
-    static class UserHolder
-    {
+    
+    static class UserHolder {
     	TextView txtId;
         TextView txtName;
         TextView txtEmail;
@@ -43,8 +40,7 @@ public class UserAdapter extends ArrayAdapter<String> {
         View row = convertView;
         UserHolder holder = null;
 
-        if(row == null)
-        {
+        if(row == null) {
             LayoutInflater inflater = ((Activity)context).getLayoutInflater();
             row = inflater.inflate(layoutResourceId, parent, false);
 
@@ -55,9 +51,7 @@ public class UserAdapter extends ArrayAdapter<String> {
             holder.txtEmail = (TextView)row.findViewById(R.id.user_email);
             holder.txtLocation = (TextView)row.findViewById(R.id.user_location);
             row.setTag(holder);
-        }
-        else
-        {
+        } else {
             holder = (UserHolder)row.getTag();
         }
 
@@ -67,13 +61,10 @@ public class UserAdapter extends ArrayAdapter<String> {
             holder.txtName.setText(user.getString("User_name"));
             holder.txtEmail.setText(user.getString("User_email"));
             holder.txtLocation.setText(user.getString("User_location"));
-
-
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
         return row;
     }
-
 }

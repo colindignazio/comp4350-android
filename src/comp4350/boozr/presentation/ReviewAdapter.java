@@ -16,7 +16,6 @@ import comp4350.boozr.R;
 
 import java.util.List;
 
-
 public class ReviewAdapter extends ArrayAdapter<String> {
     Context context;
     int layoutResourceId;
@@ -29,22 +28,18 @@ public class ReviewAdapter extends ArrayAdapter<String> {
         this.data = data;
     }
     
-    static class ReviewHolder
-    {
+    static class ReviewHolder {
     	TextView starRating;
     	TextView review;
 
     }
-    
-    
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent)  {
         View row = convertView;
         ReviewHolder holder = null;
 
-        if(row == null)
-        {
+        if(row == null) {
             LayoutInflater inflater = ((Activity)context).getLayoutInflater();
             row = inflater.inflate(layoutResourceId, parent, false);
 
@@ -52,11 +47,8 @@ public class ReviewAdapter extends ArrayAdapter<String> {
             holder.starRating = (TextView)row.findViewById(R.id.ratingTextView);
             holder.review = (TextView)row.findViewById(R.id.reviewTextView);
 
-
             row.setTag(holder);
-        }
-        else
-        {
+        } else  {
             holder = (ReviewHolder)row.getTag();
         }
 
@@ -64,13 +56,10 @@ public class ReviewAdapter extends ArrayAdapter<String> {
             JSONObject review = data.getJSONObject(position);
             holder.starRating.setText(review.getString("stars"));
             holder.review.setText(review.getString("review"));
-
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
         return row;
     }
-
-
 }

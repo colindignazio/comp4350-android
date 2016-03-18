@@ -3,7 +3,6 @@ package comp4350.boozr.presentation;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Spinner;
@@ -21,8 +20,7 @@ import java.util.concurrent.ExecutionException;
 import comp4350.boozr.R;
 import comp4350.boozr.business.API;
 
-public class SearchResultsActivity extends Activity
-{
+public class SearchResultsActivity extends Activity {
     private String userId;
 	Spinner spinner;
 	TextView spinnerLabel;
@@ -31,8 +29,7 @@ public class SearchResultsActivity extends Activity
     BeerAdapter adapter;
     
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_search_results);
@@ -56,23 +53,21 @@ public class SearchResultsActivity extends Activity
                 	resultsJsonList.add(resultsArray.getJSONObject(i));
                 	if(resultType.equals("Beer")){
                     	resultsList.add(resultsArray.getJSONObject(i).getString("Name"));
-                    	
                     } else {
                     	resultsList.add(resultsArray.getJSONObject(i).getString("User_name"));
                     }
-
                 }
             } catch(JSONException e) {
                 e.printStackTrace();
             }
         }
+        
         if(resultType!=null && resultType.equals("Beer")) {
             spinner.setVisibility(View.VISIBLE);
             spinnerLabel.setVisibility(View.VISIBLE);
             spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                
                     switch(parentView.getItemAtPosition(position).toString()){
                         case "Name":
                         	sortBy("Name");
@@ -103,43 +98,34 @@ public class SearchResultsActivity extends Activity
                     }
                 }
 
-                
-
 				@Override
-                public void onNothingSelected(AdapterView<?> parentView) {
-                    // your code here
-                }
-
+				public void onNothingSelected(AdapterView<?> parent) {}
             });
+            
             ListView reviewsList = (ListView)findViewById(R.id.searchResults);
             adapter = new BeerAdapter(this,R.layout.beer_list_item, resultsArray,resultsList);
             reviewsList.setAdapter(adapter);
             reviewsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position,
-                                        long id) {
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     TextView drinkid = (TextView) view.findViewById(R.id.drink_id);
                 	String dId = (String) drinkid.getText();
-                	Log.d("A", "Clicked");
                 	
                 	try {
                 		String beverage = new API().execute("beer/searchById", "beverage_id", dId).get();
             			String reviews = new API().execute("BeerReview/getSpecificBeerReviews", "beer_id", dId).get();
             			try {
-            				Log.d("Debug", "API call succeeded, beverage id was " + dId);
             				JSONObject jsonObject = new JSONObject(beverage);
             				String status = jsonObject.getString("status");
             				
             				JSONObject reviewsObject = new JSONObject(reviews);
             				String status2 = jsonObject.getString("status");
             				
-            				Log.d("Debug", "Status " + status);
             				if(status.equals("200")&&status2.equals("200")) {
             					JSONArray drinkA = jsonObject.getJSONArray("results");
             					JSONObject drink = drinkA.getJSONObject(0);
             					
             					JSONArray reviewsArray = reviewsObject.getJSONArray("results");
-            					
             					
             					Intent drinkIntent = new Intent(SearchResultsActivity.this, DrinkActivity.class);
             					drinkIntent.putExtra("drinkname", drink.getString("Name"));
@@ -157,7 +143,7 @@ public class SearchResultsActivity extends Activity
             				e.printStackTrace();
             			}
             		} catch(InterruptedException e) {
-
+            			e.printStackTrace();
             		} catch(ExecutionException e) {
             			e.printStackTrace();
             		}
@@ -197,7 +183,7 @@ public class SearchResultsActivity extends Activity
             				e.printStackTrace();
             			}
             		} catch(InterruptedException e) {
-
+            			e.printStackTrace();
             		} catch(ExecutionException e) {
             			e.printStackTrace();
             		}
@@ -205,6 +191,7 @@ public class SearchResultsActivity extends Activity
             }); 
         }
     }
+    
     private void sortBy(final String filter) {
     	JSONArray sortedJsonArray = new JSONArray();
     	List<JSONObject> jsonList = new ArrayList<JSONObject>();
@@ -213,12 +200,11 @@ public class SearchResultsActivity extends Activity
     	    try {
 				jsonList.add(resultsArray.getJSONObject(i));
 			} catch (JSONException e) {
-				// TODO Auto-generated catch block
                 e.printStackTrace();
             }
         }
+    	
         Collections.sort(jsonList, new Comparator<JSONObject>() {
-
             public int compare(JSONObject a, JSONObject b) {
             	int comp = 0;
             	 if (filter == "Alcohol_By_Volume" || filter == "Rating" || filter =="AvgPrice") {
@@ -236,8 +222,7 @@ public class SearchResultsActivity extends Activity
             		 } else {
             			 comp =  valA.compareTo(valB);
             		 }
-            		 
-            	 }else{
+            	 } else{
             		 String valA = new String();
                      String valB = new String();
 
@@ -245,13 +230,12 @@ public class SearchResultsActivity extends Activity
                          valA = (String) a.get(filter);
                          valB = (String) b.get(filter);
                      } catch (JSONException e) {
-                         //do something
+                         e.printStackTrace();
                      }
 
                      comp =  valA.compareTo(valB);
             	 }
                
-    	        	
     	        return comp;
     	    }
     	});
@@ -262,16 +246,10 @@ public class SearchResultsActivity extends Activity
     	resultsArray = sortedJsonArray;
 	}
     
-    
     private void updateData() {
     	if(adapter!=null){
     		adapter.data = resultsArray;
     	    adapter.notifyDataSetChanged();
     	}
-       
-    }
-    
-    public void selectResult(View v) {
-        Log.d("A", "A");
     }
 }

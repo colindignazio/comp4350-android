@@ -27,8 +27,7 @@ public class UserActivity extends Activity
 	
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_user);
@@ -40,6 +39,7 @@ public class UserActivity extends Activity
         String reviewsArray;
         
         Bundle extras = getIntent().getExtras();
+        
         if (extras != null) {
         	userId = extras.getString("userId");
             username = extras.getString("username");
@@ -49,6 +49,7 @@ public class UserActivity extends Activity
 
         	if(reviewsArray != null) {
                 reviewsArray = extras.getString("reviews");
+                
                 try{
                 	reviewArray =  new JSONArray(reviewsArray);
                 	for(int i = 0; i < reviewArray.length(); i++) {
@@ -57,6 +58,7 @@ public class UserActivity extends Activity
                 } catch(JSONException e) {
                     e.printStackTrace();
                 }
+                
             	if(reviewsArray != null) {        		
             		ListView reviewsList = (ListView)findViewById(R.id.reviewsList);
                     adapter = new ReviewAdapter(this,R.layout.review_list_item, reviewArray, resultsList);
@@ -69,6 +71,7 @@ public class UserActivity extends Activity
 			
 				JSONObject jsonObject = new JSONObject(result);
 				String status = jsonObject.getString("status");
+				
 				if(status.equals("200")) {
 			        JSONArray followingReviewArray = jsonObject.getJSONArray("details");
 			        List<String> followingResultsList = new ArrayList<String>();
@@ -120,7 +123,6 @@ public class UserActivity extends Activity
                 e.printStackTrace();
             }
 		} catch (InterruptedException | ExecutionException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     }
@@ -148,7 +150,6 @@ public class UserActivity extends Activity
 	                e.printStackTrace();
 	            }
 			} catch (InterruptedException | ExecutionException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
     	} else {
@@ -167,7 +168,6 @@ public class UserActivity extends Activity
 	                e.printStackTrace();
 	            }
 			} catch (InterruptedException | ExecutionException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
     	}
