@@ -12,6 +12,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.ListView;
 import android.widget.ArrayAdapter;
+
 import java.util.ArrayList;
 
 import org.json.*;
@@ -225,24 +226,39 @@ public class SearchResultsActivity extends Activity
         Collections.sort(jsonList, new Comparator<JSONObject>() {
 
             public int compare(JSONObject a, JSONObject b) {
-                String valA = new String();
-                String valB = new String();
+            	int comp = 0;
+            	 if (filter == "Alcohol_By_Volume" || filter == "Rating" || filter =="AvgPrice") {
+            		 Double valA = 0.0;
+            		 Double valB = 0.0;
+            		 
+            		 try {
+                         valA = Double.parseDouble((String) a.get(filter)) ;
+                         valA = Double.parseDouble((String) b.get(filter)) ;
+                     } catch (JSONException e) {
+                         //do something
+                     }
+            		 if (filter == "Alcohol_By_Volume" || filter == "Rating") {
+            			 comp =  valB.compareTo(valA);
+            		 } else {
+            			 comp =  valA.compareTo(valB);
+            		 }
+            		 
+            	 }else{
+            		 String valA = new String();
+                     String valB = new String();
 
-                try {
-                    valA = (String) a.get(filter);
-                    valB = (String) b.get(filter);
-                } catch (JSONException e) {
-                    //do something
-                }
+                     try {
+                         valA = (String) a.get(filter);
+                         valB = (String) b.get(filter);
+                     } catch (JSONException e) {
+                         //do something
+                     }
 
-                if (filter == "Alcohol_By_Volume" || filter == "Rating") {
-                    //Return High to Low
-                    return valB.compareTo(valA);
-                } else {
-                    return valA.compareTo(valB);
-    	        }
+                     comp =  valA.compareTo(valB);
+            	 }
+               
     	        	
-    	        
+    	        return comp;
     	    }
     	});
     	
