@@ -41,8 +41,6 @@ public class DrinkActivity extends Activity {
     	String brewery = "Error brewery not found";
         String beerId = "Error beerId not found";
         String UserId = "";
-        String reviews = "{}";
-        JSONArray reviewsArray;
         String reviewsArray;
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
@@ -61,6 +59,7 @@ public class DrinkActivity extends Activity {
         	if(reviewsArray != null) {
         		try{
             		JSONArray reviews = new JSONArray(reviewsArray);
+            		
             		JSONObject review;
             		//Log.d("Debug", "User Reviews from User Activity " + reviews.toString());
             		ArrayList<String> items = new ArrayList<String>();
