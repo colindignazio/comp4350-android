@@ -21,9 +21,6 @@ import comp4350.boozr.business.API;
 public class UserActivity extends Activity
 {
 	private String userId = "";
-    private String username = "";
-    private String email = "";
-    private String location = "";
     ReviewAdapter adapter;
 	JSONArray reviewArray;
 	List<String> resultsList = new ArrayList<String>();
@@ -98,9 +95,6 @@ public class UserActivity extends Activity
         emailTextView.setText(email);
         locationTextView.setText(location);
         this.userId = userId;
-        this.username = username;
-        this.email = email;
-        this.location = location;
         
         ToggleButton followButton = (ToggleButton) findViewById(R.id.followButton);
         
