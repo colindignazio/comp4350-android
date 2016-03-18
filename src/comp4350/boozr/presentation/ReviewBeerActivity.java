@@ -1,7 +1,9 @@
 package comp4350.boozr.presentation;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -28,7 +30,6 @@ public class ReviewBeerActivity extends Activity
 
         String drinkName = "Error Drink Not Found";
         String beerId = "Error beerId not found";
-        String userId = "1";
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             drinkName = extras.getString("drinkname");
@@ -41,7 +42,24 @@ public class ReviewBeerActivity extends Activity
         drinkNameTextView.setText(drinkName);
 
         this.beerId = beerId;
-        this.userId = userId;
+        
+        SharedPreferences prefs = this.getSharedPreferences("com.boozr.app", Context.MODE_PRIVATE);
+		String sessionId = prefs.getString("sessionId", null);
+        
+        try {
+			String result = new API().execute("User/getUserDetails", "sessionId", sessionId).get();
+			
+			JSONObject jsonObject = new JSONObject(result);
+            String status = jsonObject.getString("status");
+            if(status.equals("200")) {
+            	this.userId = jsonObject.getJSONObject("user").getString("User_id");
+            } else {
+                this.userId = null;
+            }
+		} catch (InterruptedException | ExecutionException | JSONException e) {
+			e.printStackTrace();
+	        this.userId = null;
+		}
     }
 
     public void postReview(View v) {

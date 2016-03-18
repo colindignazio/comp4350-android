@@ -6,7 +6,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Drink Name"
+        android:text="@string/drinkName"
         android:id="@+id/drinknameText"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Stars:"
+            android:text="@string/stars"
             android:id="@+id/StarsLabel"
             android:layout_row="0"
             android:layout_column="0" />
@@ -40,7 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Price: "
+            android:text="@string/price"
             android:id="@+id/PriceLabel"
             android:layout_row="1"
             android:layout_column="0" />
@@ -58,7 +58,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Store Name:"
+            android:text="@string/storeName"
             android:id="@+id/NameLabel"
             android:layout_row="2"
             android:layout_column="0" />
@@ -68,13 +68,14 @@
             android:layout_height="wrap_content"
             android:id="@+id/nameText"
             android:layout_row="2"
-            android:layout_column="1" />
+            android:layout_column="1"
+        	android:inputType="text" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Store Address:"
+            android:text="@string/storeAddress"
             android:id="@+id/AddressLabel"
             android:layout_row="3"
             android:layout_column="0" />
@@ -84,13 +85,14 @@
             android:layout_height="wrap_content"
             android:id="@+id/addressText"
             android:layout_row="3"
-            android:layout_column="1" />
+            android:layout_column="1"
+        	android:inputType="text" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Review"
+            android:text="@string/review"
             android:id="@+id/ReviewLabel"
             android:layout_row="4"
             android:layout_column="0" />
@@ -107,7 +109,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Post Review"
+            android:text="@string/postReview"
             android:id="@+id/PostReview"
             android:layout_row="6"
             android:onClick="postReview"

@@ -36,5 +36,20 @@
     <string name="toggleButton">ToggleButton</string>
     <string name="userId">User ID</string>
     <string name="unknown">unknown</string>
+    <string name="drinkName">Drink Name</string>
+    <string name="stars">Stars:</string>
+    <string name="price">Price:</string>
+    <string name="storeName">Store Name:</string>
+    <string name="storeAddress">Store Address:</string>
+    <string name="review">Review</string>
+    <string name="postReview">Post Review</string>
+    <string name="search">Search</string>
+    <string name="login">Login</string>
+    <string name="beer">Beer</string>
+    <string name="user">User</string>
+    <string name="advancedSearch">Advanced Search</string>
+    <string name="password">Password</string>
+    <string name="createAccount">Create Account</string>
+    <string name="topDrinks">Top Drinks</string>
     
 </resources>

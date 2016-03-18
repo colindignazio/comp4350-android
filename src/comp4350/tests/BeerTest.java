@@ -1,16 +1,10 @@
 package comp4350.tests;
 import com.robotium.solo.Solo;
 
-import android.content.Context;
-import android.preference.PreferenceManager;
 import android.test.ActivityInstrumentationTestCase2;
 import android.widget.EditText;
-import android.widget.Spinner;
-
 import comp4350.boozr.R;
 import comp4350.boozr.presentation.HomeActivity;
-import comp4350.boozr.presentation.SearchResultsActivity;
-import comp4350.boozr.presentation.UserActivity;
 
 public class BeerTest extends ActivityInstrumentationTestCase2<HomeActivity> {
     private Solo solo;
