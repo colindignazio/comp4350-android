@@ -11,19 +11,6 @@ import android.os.AsyncTask;
  */
 public class API extends AsyncTask<String, Void, String> {
     private String apiUrl = "http://54.200.14.217/?/";
-    private String sessionId;
-
-    public API() {
-        this.sessionId = null;
-    }
-
-    public API(String sessionId) {
-        if(sessionId != null && !sessionId.equals("")) {
-            this.sessionId = sessionId;
-        } else {
-            this.sessionId = null;
-        }
-    }
 
     @Override
     protected String doInBackground(String... input) {
