@@ -3,7 +3,9 @@ package comp4350.boozr.presentation;
 import org.json.JSONArray;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 import comp4350.boozr.R;
 
@@ -72,20 +74,18 @@ public class DrinkActivity extends Activity {
     }
 
     public void reviewBeer(View v) {
-        EditText searchText = (EditText)findViewById(R.id.searchText);
-        String searchString = searchText.getText().toString();
         Intent reviewDrinkIntent = new Intent(DrinkActivity.this, ReviewBeerActivity.class);
 
-        reviewDrinkIntent.putExtra("drinkname", drink.getString("Name"));
-        reviewDrinkIntent.putExtra("type", drink.getString("Type"));
-        reviewDrinkIntent.putExtra("alc", drink.getString("Alcohol_By_Volume"));
-        reviewDrinkIntent.putExtra("rating", drink.getString("Rating"));
-        reviewDrinkIntent.putExtra("price", drink.getString("AvgPrice"));
-        reviewDrinkIntent.putExtra("brewery", drink.getString("Brewery"));
-        reviewDrinkIntent.putExtra("beerId", drink.getString("Beer_id"));
+        reviewDrinkIntent.putExtra("drinkname", drinkName);
+        reviewDrinkIntent.putExtra("type", type);
+        reviewDrinkIntent.putExtra("alc", alc);
+        reviewDrinkIntent.putExtra("rating",rating);
+        reviewDrinkIntent.putExtra("price", price);
+        reviewDrinkIntent.putExtra("brewery", brewery);
+        reviewDrinkIntent.putExtra("beerId", beerId);
         reviewDrinkIntent.putExtra("userId", userId);
 
-        SearchResultsActivity.this.startActivity(reviewDrinkIntent);
+        DrinkActivity.this.startActivity(reviewDrinkIntent);
     }
 
 }

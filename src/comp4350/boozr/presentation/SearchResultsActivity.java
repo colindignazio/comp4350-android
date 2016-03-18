@@ -149,7 +149,6 @@ public class SearchResultsActivity extends Activity
             					drinkIntent.putExtra("brewery", drink.getString("Brewery"));
                                 drinkIntent.putExtra("userId", userId);
                                 SearchResultsActivity.this.startActivity(drinkIntent);
-            					
             				}
             			} catch(JSONException e) {
             				e.printStackTrace();

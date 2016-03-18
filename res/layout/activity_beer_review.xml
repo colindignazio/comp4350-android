@@ -1,102 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
-    
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Drink Id"
-		android:visibility="invisible"
-        android:id="@+id/drink_id" />
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Beer Name"
-        android:id="@+id/beer_name"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Drink Name"
+        android:id="@+id/drinknameText"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:textSize="24dp"
-        android:paddingLeft="8dp"
-        android:paddingTop="8dp"
-        android:paddingRight="8dp"
-        android:paddingBottom="4dp"
-        android:maxLines="1"
-        android:ellipsize="end" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Beer Brewery"
-        android:id="@+id/brewery_name"
-        android:textSize="18dp"
-        android:paddingLeft="8dp"
-        android:paddingTop="4dp"
-        android:paddingRight="8dp"
-        android:paddingBottom="8dp"
-        android:maxLines="1"
-        android:ellipsize="end"
-        android:layout_below="@+id/beer_name"
-        android:layout_alignParentLeft="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Type: "
-        android:id="@+id/location_header"
-        android:layout_below="@+id/brewery_name"
-        android:layout_alignParentLeft="true"
-        android:paddingLeft="8dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Alc: "
-        android:id="@+id/alc_header"
-        android:layout_above="@+id/beer_alc"
         android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Rating: "
-        android:id="@+id/rating_header"
-        android:layout_above="@+id/beer_alc"
-        android:layout_alignParentRight="true"
-        android:paddingRight="8dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="5"
-        android:id="@+id/beer_alc"
-        android:layout_below="@+id/location_header"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ale"
-        android:id="@+id/beer_type"
-        android:layout_below="@+id/location_header"
-        android:layout_alignParentLeft="true"
-        android:paddingLeft="8dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="5"
-        android:id="@+id/beer_rating"
-        android:layout_alignTop="@+id/beer_alc"
-        android:layout_alignParentRight="true"
-        android:paddingRight="8dp" />
 
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/beer_type"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/drinknameText">
 
         <TextView
             android:layout_width="wrap_content"
@@ -108,9 +28,9 @@
             android:layout_column="0" />
 
         <EditText
-            android:layout_width="137dp"
+            android:layout_width="130dp"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
+            android:inputType="number"
             android:ems="10"
             android:id="@+id/starsText"
             android:layout_row="0"

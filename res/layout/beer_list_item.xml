@@ -44,7 +44,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/brewery_name" >
+        android:layout_below="@+id/brewery_name"
+        android:id="@+id/linearLayout">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -136,16 +137,5 @@
                 android:text="5" />
         </LinearLayout>
     </LinearLayout>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Review Beer"
-        android:id="@+id/ReviewButton"
-        android:onClick="reviewBeer"
-        android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/beer_rating"
-        android:layout_toStartOf="@+id/beer_rating"
-        android:layout_marginBottom="25dp" />
 
 </RelativeLayout>

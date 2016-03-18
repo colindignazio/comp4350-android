@@ -165,7 +165,7 @@ public class HomeActivity extends Activity
 						//User search results
 						searchIntent.putExtra("results", jsonObject.getString("searchResults"));
 						searchIntent.putExtra("resultType", "User");
-						searchIntent.putExtra("userId", userId)
+						searchIntent.putExtra("userId", userId);
 						HomeActivity.this.startActivity(searchIntent);
 					} else if(status.equals("400")) {
 						//No results found
@@ -223,7 +223,7 @@ public class HomeActivity extends Activity
 					//Logout success
 					this.prefs.edit().putString("sessionId", null).apply();
 					Intent homeIntent = new Intent(HomeActivity.this, HomeActivity.class);
-					userId=0;
+					userId="0";
 					HomeActivity.this.startActivity(homeIntent);
 				} else {
 					//Login failed
