@@ -102,9 +102,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/radioGroup1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="19dp"
+        android:layout_marginTop="15dp"
+        android:layout_toLeftOf="@+id/textView"
         android:onClick="topDrinks"
         android:text="Top Drinks" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/topDrinks"
+        android:layout_alignRight="@+id/searchText"
+        android:onClick="newDrink"
+        android:text="New Drink" />
 
 </RelativeLayout>
