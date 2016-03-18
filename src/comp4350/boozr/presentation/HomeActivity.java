@@ -187,6 +187,10 @@ public class HomeActivity extends Activity {
 		Intent createAccountIntent = new Intent(HomeActivity.this, CreateAccountActivity.class);
 		HomeActivity.this.startActivity(createAccountIntent);
 	}
+	public void newDrink(View v){ 		
+		Intent createDrinkIntent = new Intent(HomeActivity.this, CreateDrinkActivity.class); 		
+		HomeActivity.this.startActivity(createDrinkIntent); 	
+	}
 	
 	public void topDrinks(View v){
 		Intent topDrinksIntent = new Intent(HomeActivity.this, SearchResultsActivity.class);
