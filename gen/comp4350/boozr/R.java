@@ -89,7 +89,7 @@ public final class R {
         public static final int saveButton=0x7f09003f;
         public static final int scrollView=0x7f090000;
         public static final int searchButton=0x7f09002f;
-        public static final int searchButtonLoggedIn=0x7f090039;
+        public static final int searchButton =0x7f090039;
         public static final int searchResults=0x7f090042;
         public static final int searchText=0x7f090032;
         public static final int separator=0x7f09001e;

@@ -90,6 +90,7 @@ public class ProfileActivity extends Activity
                         String status = jsonObject.getString("status");
                         if(status.equals("200")) {
                             //update successful
+                            this.username = username;
                             new AlertDialog.Builder(ProfileActivity.this)
                                     .setTitle("Username Updated")
                                     .setMessage("Your Username has been updated")
@@ -132,6 +133,7 @@ public class ProfileActivity extends Activity
                         String status = jsonObject.getString("status");
                         if(status.equals("200")) {
                             //update successful
+                            this.location = location;
                             new AlertDialog.Builder(ProfileActivity.this)
                                     .setTitle("Location Updated")
                                     .setMessage("Your location has been updated")

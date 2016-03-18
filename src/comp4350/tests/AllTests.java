@@ -18,5 +18,6 @@ public class AllTests
     {
         suite.addTestSuite(SearchTest.class);
         suite.addTestSuite(UserTest.class);
+        suite.addTestSuite(BeerTest.class);
     }
 }

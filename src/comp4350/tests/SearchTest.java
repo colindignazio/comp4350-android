@@ -35,7 +35,7 @@ public class SearchTest extends ActivityInstrumentationTestCase2<HomeActivity> {
 		
 		solo.clickInList(0, 0); 
 		solo.assertCurrentActivity("wrong activity", UserActivity.class);
-		assertTrue(solo.waitForText("winnipeg"));
+		assertTrue(solo.waitForText("Winnipeg"));
 	}
 	
 	public void testBeerSearch() throws Exception {
@@ -49,5 +49,25 @@ public class SearchTest extends ActivityInstrumentationTestCase2<HomeActivity> {
 		
 		//solo.clickInList(0, 0); 
 		//assertTrue(solo.waitForText("e2euser@gmail.com"));
+	}
+
+	public void testValidBeerSearch() throws Exception {
+		solo.assertCurrentActivity("wrong activity", HomeActivity.class);
+		solo.enterText((EditText) solo.getView(R.id.searchText), "grass");
+		solo.clickOnView(solo.getView(R.id.beerRadio));
+		solo.clickOnView(solo.getView(R.id.searchButton));
+
+		solo.assertCurrentActivity("wrong activity", HomeActivity.class);
+		assertTrue(solo.waitForText("Grasshopper"));
+	}
+
+	public void testValidUserSearch() throws Exception {
+		solo.assertCurrentActivity("wrong activity", HomeActivity.class);
+		solo.enterText((EditText) solo.getView(R.id.searchText), "mit");
+		solo.clickOnView(solo.getView(R.id.userRadio));
+		solo.clickOnView(solo.getView(R.id.searchButton));
+
+		solo.assertCurrentActivity("wrong activity", HomeActivity.class);
+		assertTrue(solo.waitForText("Mitchell"));
 	}
 }
