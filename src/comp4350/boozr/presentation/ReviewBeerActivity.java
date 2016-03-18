@@ -18,7 +18,7 @@ import comp4350.boozr.business.API;
 public class ReviewBeerActivity extends Activity
 {
     private String beerId = "";
-    private String userId ="1";
+    private String userId = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,28 +53,34 @@ public class ReviewBeerActivity extends Activity
         String priceString = price.getText().toString();
         EditText review = (EditText)findViewById(R.id.reviewText);
         String reviewString = review.getText().toString();
+    	if(userId != null)
+    	{
+    		try {
+            	String result = new API().execute("BeerReview/create/", "beer_id", beerId, "user_id", userId, "stars", starsString, "review", reviewString, "price", priceString).get();
+            	try {
+                	JSONObject jsonObject = new JSONObject(result);
+                	String status = jsonObject.getString("status");
+                	if(status.equals("200")) {
+                		//	post successful, go back to the home page
+                    	Intent homeIntent = new Intent(ReviewBeerActivity.this, HomeActivity.class);
+                    	ReviewBeerActivity.this.startActivity(homeIntent);
 
-        try {
-            String result = new API().execute("BeerReview/create/", "user_id", userId, "beer_id", beerId, "stars", starsString, "review", reviewString, "price", priceString).get();
-            try {
-                JSONObject jsonObject = new JSONObject(result);
-                String status = jsonObject.getString("status");
-                if(status.equals("200")) {
-                    //post successful, go back to the home page
-                    Intent homeIntent = new Intent(ReviewBeerActivity.this, HomeActivity.class);
-                    ReviewBeerActivity.this.startActivity(homeIntent);
+                	} else {
+                		//error message need to figure this out 
+                    	Messages.warning(this, "Review could not be posted");
+                	}
+            	} catch(JSONException e) {
+                	e.printStackTrace();
+            	}
+        	} catch(InterruptedException e) {
 
-                } else {
-                      //error message need to figure this out 
-                    Messages.warning(this, "Review could not be posted");
-                }
-            } catch(JSONException e) {
-                e.printStackTrace();
-            }
-        } catch(InterruptedException e) {
-
-        } catch(ExecutionException e) {
-            e.printStackTrace();
-        }
+        	} catch(ExecutionException e) {
+            	e.printStackTrace();
+        	}
+    	}
+    	else
+    	{
+            Messages.warning(this, "You must be logged in to post reviews");
+    	}
     }
 }

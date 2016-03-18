@@ -1,8 +1,6 @@
 package comp4350.boozr.presentation;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,7 +9,6 @@ import android.widget.AdapterView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.ListView;
-import android.widget.ArrayAdapter;
 import java.util.ArrayList;
 
 import org.json.*;
@@ -52,7 +49,6 @@ public class SearchResultsActivity extends Activity
             resultType = extras.getString("resultType");
             results = extras.getString("results");
             userId = extras.getString("userId");
-
             try {
                 resultsArray = new JSONArray(results);
                 
@@ -152,10 +148,9 @@ public class SearchResultsActivity extends Activity
             					drinkIntent.putExtra("rating", drink.getString("Rating"));
             					drinkIntent.putExtra("price", drink.getString("AvgPrice"));
             					drinkIntent.putExtra("brewery", drink.getString("Brewery"));
-            					drinkIntent.putExtra("reviews", reviewsArray.toString());
-            					SearchResultsActivity.this.startActivity(drinkIntent);
-            					
+            					drinkIntent.putExtra("reviews", reviewsArray.toString());            					
                                 drinkIntent.putExtra("userId", userId);
+                                drinkIntent.putExtra("beerId", drink.getString("Beer_id"));
                                 SearchResultsActivity.this.startActivity(drinkIntent);
             				}
             			} catch(JSONException e) {
@@ -225,24 +220,39 @@ public class SearchResultsActivity extends Activity
         Collections.sort(jsonList, new Comparator<JSONObject>() {
 
             public int compare(JSONObject a, JSONObject b) {
-                String valA = new String();
-                String valB = new String();
+            	int comp = 0;
+            	 if (filter == "Alcohol_By_Volume" || filter == "Rating" || filter =="AvgPrice") {
+            		 Double valA = 0.0;
+            		 Double valB = 0.0;
+            		 
+            		 try {
+                         valA = Double.parseDouble((String) a.get(filter)) ;
+                         valB = Double.parseDouble((String) b.get(filter)) ;
+                     } catch (JSONException e) {
+                         //do something
+                     }
+            		 if (filter == "Alcohol_By_Volume" || filter == "Rating") {
+            			 comp =  valB.compareTo(valA);
+            		 } else {
+            			 comp =  valA.compareTo(valB);
+            		 }
+            		 
+            	 }else{
+            		 String valA = new String();
+                     String valB = new String();
 
-                try {
-                    valA = (String) a.get(filter);
-                    valB = (String) b.get(filter);
-                } catch (JSONException e) {
-                    //do something
-                }
+                     try {
+                         valA = (String) a.get(filter);
+                         valB = (String) b.get(filter);
+                     } catch (JSONException e) {
+                         //do something
+                     }
 
-                if (filter == "Alcohol_By_Volume" || filter == "Rating") {
-                    //Return High to Low
-                    return valB.compareTo(valA);
-                } else {
-                    return valA.compareTo(valB);
-    	        }
+                     comp =  valA.compareTo(valB);
+            	 }
+               
     	        	
-    	        
+    	        return comp;
     	    }
     	});
     	

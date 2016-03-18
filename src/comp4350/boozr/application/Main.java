@@ -1,10 +1,5 @@
 package comp4350.boozr.application;
 
-import android.util.Log;
-import java.util.concurrent.ExecutionException;
-
-import comp4350.boozr.business.API;
-
 public class Main
 {
 	public static void main(String[] args)

@@ -1,19 +1,13 @@
 package comp4350.boozr.presentation;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 import android.widget.ListView;
-import android.widget.ArrayAdapter;
 import java.util.ArrayList;
 
 import org.json.*;
@@ -27,9 +21,6 @@ import comp4350.boozr.business.API;
 public class UserActivity extends Activity
 {
 	private String userId = "";
-    private String username = "";
-    private String email = "";
-    private String location = "";
     ReviewAdapter adapter;
 	JSONArray reviewArray;
 	List<String> resultsList = new ArrayList<String>();
@@ -71,8 +62,31 @@ public class UserActivity extends Activity
                     adapter = new ReviewAdapter(this,R.layout.review_list_item, reviewArray, resultsList);
                     reviewsList.setAdapter(adapter);
             	}
-        	}            
-        }
+        	}    
+        	
+        	try {
+        		String result = new API().execute("follow/getRecentReviews", "userId", userId).get();
+			
+				JSONObject jsonObject = new JSONObject(result);
+				String status = jsonObject.getString("status");
+				if(status.equals("200")) {
+			        JSONArray followingReviewArray = jsonObject.getJSONArray("details");
+			        List<String> followingResultsList = new ArrayList<String>();
+					
+                	for(int i = 0; i < followingReviewArray.length(); i++) {
+						followingResultsList.add(followingReviewArray.getJSONObject(i).getString("review"));
+                    }	
+                	
+                	if(!followingResultsList.isEmpty()) {        		
+                		ListView reviewsList = (ListView)findViewById(R.id.followingReviewsList);
+                        ReviewAdapter followingAdapter = new ReviewAdapter(this,R.layout.review_list_item, followingReviewArray, followingResultsList);
+                        reviewsList.setAdapter(followingAdapter);
+                	}
+				}
+        	} catch(Exception e) {
+        		e.printStackTrace();
+        	}
+		}
 
         TextView usernameTextView = (TextView)findViewById(R.id.usernameText);
         TextView emailTextView = (TextView)findViewById(R.id.emailText);
@@ -81,9 +95,6 @@ public class UserActivity extends Activity
         emailTextView.setText(email);
         locationTextView.setText(location);
         this.userId = userId;
-        this.username = username;
-        this.email = email;
-        this.location = location;
         
         ToggleButton followButton = (ToggleButton) findViewById(R.id.followButton);
         
