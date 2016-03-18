@@ -40,7 +40,7 @@ public class DrinkActivity extends Activity {
     	String price = "Error price not found";
     	String brewery = "Error brewery not found";
         String beerId = "Error beerId not found";
-        String UserId = "";
+        String userId = "";
         String reviewsArray;
         Bundle extras = getIntent().getExtras();
         if (extras != null) {

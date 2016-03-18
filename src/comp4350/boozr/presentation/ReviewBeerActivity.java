@@ -63,6 +63,7 @@ public class ReviewBeerActivity extends Activity
                     //post successful, go back to the home page
                     Intent homeIntent = new Intent(ReviewBeerActivity.this, HomeActivity.class);
                     ReviewBeerActivity.this.startActivity(homeIntent);
+
                 } else {
                       //error message need to figure this out 
                     Messages.warning(this, "Review could not be posted");
