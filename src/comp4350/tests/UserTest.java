@@ -5,6 +5,7 @@ import android.content.Context;
 import android.test.ActivityInstrumentationTestCase2;
 import android.widget.EditText;
 import comp4350.boozr.R;
+import comp4350.boozr.presentation.CreateAccountActivity;
 import comp4350.boozr.presentation.HomeActivity;
 import comp4350.boozr.presentation.SearchResultsActivity;
 import comp4350.boozr.presentation.UserActivity;
@@ -168,5 +169,20 @@ public class UserTest extends ActivityInstrumentationTestCase2<HomeActivity> {
 		solo.clickInList(0, 0);
 		assertTrue(solo.waitForText("mi@t.com"));
 		assertTrue(solo.waitForText("Winnipeg"));
+	}
+	
+	public void testCreateUser() throws Exception {
+		solo.assertCurrentActivity("wrong activity", HomeActivity.class);
+		solo.clickOnView(solo.getView(R.id.button5));
+		assertTrue(solo.waitForText("Email:"));
+		solo.assertCurrentActivity("wrong activity", CreateAccountActivity.class);
+
+		solo.enterText((EditText) solo.getView(R.id.usernameText), "e2euser");
+		solo.enterText((EditText) solo.getView(R.id.passwordText), "textpass");
+		solo.enterText((EditText) solo.getView(R.id.emailText), "email@gmail.com");
+		solo.enterText((EditText) solo.getView(R.id.locationText), "Winnipeg");
+		solo.clickOnView(solo.getView(R.id.buttonSubmit));
+
+		assertTrue(solo.waitForText("Account could not be created."));
 	}
 }

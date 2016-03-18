@@ -4,6 +4,7 @@ import com.robotium.solo.Solo;
 import android.test.ActivityInstrumentationTestCase2;
 import android.widget.EditText;
 import comp4350.boozr.R;
+import comp4350.boozr.presentation.CreateDrinkActivity;
 import comp4350.boozr.presentation.HomeActivity;
 
 public class BeerTest extends ActivityInstrumentationTestCase2<HomeActivity> {
@@ -80,4 +81,28 @@ public class BeerTest extends ActivityInstrumentationTestCase2<HomeActivity> {
         assertTrue(solo.waitForText("Ale"));
         assertTrue(solo.waitForText("Ab Inbev"));
     }
+	
+	public void testCreateDrink() throws Exception {
+		solo.assertCurrentActivity("wrong activity", HomeActivity.class);
+				
+		solo.enterText((EditText) solo.getView(R.id.usernameText),"e2euser");
+		solo.enterText((EditText) solo.getView(R.id.passwordText),"testpass");
+		solo.clickOnView(solo.getView(R.id.button6));
+		assertTrue(solo.waitForText("Logout"));
+		
+		solo.clickOnView(solo.getView(R.id.button1));
+		assertTrue(solo.waitForText("Type"));
+		solo.assertCurrentActivity("wrong activity", CreateDrinkActivity.class);
+
+		solo.enterText((EditText) solo.getView(R.id.drinkTypeText), "e2euserAle");
+		solo.enterText((EditText) solo.getView(R.id.drinkNameText), "e2eUserDrink");
+		solo.enterText((EditText) solo.getView(R.id.drinkAbvText), "15");
+		solo.enterText((EditText) solo.getView(R.id.drinkBreweryText), "e2eUserBrewary");
+		solo.clickOnView(solo.getView(R.id.buttonDrinkSubmit));
+
+		assertTrue(solo.waitForText("New Drink"));
+		solo.assertCurrentActivity("wrong activity", HomeActivity.class);
+		solo.clickOnView(solo.getView(R.id.button4));
+		assertTrue(solo.waitForText("Login"));
+	}
 }
