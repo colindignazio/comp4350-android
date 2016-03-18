@@ -158,6 +158,7 @@ public final class R {
         public static final int createAccount=0x7f060027;
         public static final int delete=0x7f060005;
         public static final int drinkName=0x7f06001a;
+        public static final int editAccount=0x7f06002c;
         public static final int email=0x7f060016;
         public static final int fatalError=0x7f060007;
         public static final int field=0x7f06000d;
@@ -166,7 +167,9 @@ public final class R {
         public static final int hello_world=0x7f06000a;
         public static final int location=0x7f060015;
         public static final int login=0x7f060022;
+        public static final int logout=0x7f06002b;
         public static final int name=0x7f060006;
+        public static final int newDrink=0x7f060029;
         public static final int password=0x7f060026;
         public static final int postReview=0x7f060020;
         public static final int price=0x7f06001c;
@@ -187,6 +190,7 @@ public final class R {
         public static final int update=0x7f060004;
         public static final int user=0x7f060024;
         public static final int userId=0x7f060018;
+        public static final int userProfile=0x7f06002a;
         public static final int username=0x7f060012;
         public static final int warning=0x7f060008;
     }

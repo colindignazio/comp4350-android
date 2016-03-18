@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:text="Boozr"
+        android:text="@string/app_name"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
@@ -19,10 +19,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/textView"
         android:layout_marginTop="105dp"
         android:layout_toLeftOf="@+id/searchButton"
-        android:hint="Search"
+        android:layout_toStartOf="@+id/searchButton"
+        android:hint="@string/search"
         android:inputType="text" />
 
     <Button
@@ -31,8 +33,9 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/searchText"
         android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:onClick="search"
-        android:text="Search" />
+        android:text="@string/search" />
 
     <Button
         android:id="@+id/button3"
@@ -40,8 +43,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:onClick="loadUserProfile"
-        android:text="User Profile" />
+        android:text="@string/userProfile" />
 
     <Button
         android:id="@+id/button4"
@@ -49,14 +53,16 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/button3"
         android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:onClick="logout"
-        android:text="Logout" />
+        android:text="@string/logout" />
 
     <RadioGroup
         android:id="@+id/radioGroup1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/searchText"
         android:onClick="searchTypeSelect" >
 
@@ -67,7 +73,7 @@
             android:checked="true"
             android:clickable="true"
             android:onClick="searchTypeSelect"
-            android:text="Beer" />
+            android:text="@string/beer" />
 
         <RadioButton
             android:id="@+id/userRadio"
@@ -75,7 +81,7 @@
             android:layout_height="wrap_content"
             android:clickable="true"
             android:onClick="searchTypeSelect"
-            android:text="User" />
+            android:text="@string/user" />
     </RadioGroup>
 
     <Button
@@ -86,7 +92,7 @@
         android:layout_alignRight="@+id/button4"
         android:layout_below="@+id/searchText"
         android:onClick="advancedSearch"
-        android:text="Advanced Search" />
+        android:text="@string/advancedSearch" />
 
     <Button
         android:id="@+id/Button01"
@@ -95,25 +101,28 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:onClick="editUserProfile"
-        android:text="Edit Account" />
+        android:text="@string/editAccount" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/topDrinks"
+        android:layout_alignBottom="@+id/topDrinks"
+        android:layout_toRightOf="@+id/textView"
+        android:layout_toEndOf="@+id/textView"
+        android:onClick="newDrink"
+        android:text="@string/newDrink" />
 
     <Button
         android:id="@+id/topDrinks"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/radioGroup1"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="172dp"
         android:layout_toLeftOf="@+id/textView"
+        android:layout_toStartOf="@+id/textView"
         android:onClick="topDrinks"
-        android:text="Top Drinks" />
-
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/topDrinks"
-        android:layout_alignRight="@+id/searchText"
-        android:onClick="newDrink"
-        android:text="New Drink" />
+        android:text="@string/topDrinks" />
 
 </RelativeLayout>

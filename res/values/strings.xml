@@ -51,5 +51,9 @@
     <string name="password">Password</string>
     <string name="createAccount">Create Account</string>
     <string name="topDrinks">Top Drinks</string>
+    <string name="newDrink">New Drink</string>
+    <string name="userProfile">User Profile</string>
+    <string name="logout">Logout</string>
+    <string name="editAccount">Edit Account</string>
     
 </resources>
