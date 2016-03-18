@@ -34,15 +34,15 @@ public final class R {
     public static final class id {
         public static final int Button01=0x7f090032;
         public static final int alcText=0x7f090022;
-        public static final int alc_header=0x7f09003d;
+        public static final int alc_header=0x7f09003e;
         public static final int beerRadio=0x7f090028;
-        public static final int beer_alc=0x7f09003e;
-        public static final int beer_name=0x7f090039;
-        public static final int beer_price=0x7f090042;
-        public static final int beer_rating=0x7f090040;
-        public static final int beer_type=0x7f09003c;
+        public static final int beer_alc=0x7f09003f;
+        public static final int beer_name=0x7f09003a;
+        public static final int beer_price=0x7f090043;
+        public static final int beer_rating=0x7f090041;
+        public static final int beer_type=0x7f09003d;
         public static final int breweryText=0x7f090021;
-        public static final int brewery_name=0x7f09003a;
+        public static final int brewery_name=0x7f09003b;
         public static final int btn_advanced=0x7f09002c;
         public static final int btn_search=0x7f090011;
         public static final int button=0x7f090024;
@@ -54,9 +54,10 @@ public final class R {
         public static final int button7=0x7f090031;
         public static final int buttonSubmit=0x7f09001b;
         public static final int drinkTypeText=0x7f09001d;
-        public static final int drink_id=0x7f090038;
+        public static final int drink_id=0x7f090039;
         public static final int drinknameText=0x7f09001c;
         public static final int emailText=0x7f090018;
+        public static final int followButton=0x7f090038;
         public static final int input_alc=0x7f090008;
         public static final int input_brewery=0x7f090004;
         public static final int input_max_price=0x7f09000c;
@@ -67,12 +68,12 @@ public final class R {
         public static final int input_type=0x7f090006;
         public static final int label_spinner=0x7f090036;
         public static final int locationText=0x7f09001a;
-        public static final int location_header=0x7f09003b;
+        public static final int location_header=0x7f09003c;
         public static final int passwordText=0x7f090016;
         public static final int priceText=0x7f090023;
-        public static final int price_header=0x7f090041;
+        public static final int price_header=0x7f090042;
         public static final int ratingText=0x7f09001e;
-        public static final int rating_header=0x7f09003f;
+        public static final int rating_header=0x7f090040;
         public static final int reviewsList=0x7f09001f;
         public static final int saveButton=0x7f090034;
         public static final int scrollView=0x7f090000;
@@ -98,10 +99,10 @@ public final class R {
         public static final int textView8=0x7f090005;
         public static final int textView9=0x7f090007;
         public static final int userRadio=0x7f090029;
-        public static final int user_email=0x7f090045;
-        public static final int user_id=0x7f090043;
-        public static final int user_location=0x7f090046;
-        public static final int user_name=0x7f090044;
+        public static final int user_email=0x7f090046;
+        public static final int user_id=0x7f090044;
+        public static final int user_location=0x7f090047;
+        public static final int user_name=0x7f090045;
         public static final int usernameText=0x7f090014;
     }
     public static final class integer {
@@ -129,12 +130,14 @@ public final class R {
         public static final int delete=0x7f060005;
         public static final int fatalError=0x7f060007;
         public static final int field=0x7f06000d;
+        public static final int follow=0x7f060010;
         public static final int hello_world=0x7f06000a;
         public static final int name=0x7f060006;
         public static final int reset=0x7f060009;
         public static final int save=0x7f06000b;
         public static final int submit=0x7f06000e;
         public static final int titleTestActivity=0x7f06000f;
+        public static final int unfollow=0x7f060011;
         public static final int update=0x7f060004;
         public static final int warning=0x7f060008;
     }
