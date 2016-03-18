@@ -233,7 +233,7 @@ public class SearchResultsActivity extends Activity
             		 
             		 try {
                          valA = Double.parseDouble((String) a.get(filter)) ;
-                         valA = Double.parseDouble((String) b.get(filter)) ;
+                         valB = Double.parseDouble((String) b.get(filter)) ;
                      } catch (JSONException e) {
                          //do something
                      }
