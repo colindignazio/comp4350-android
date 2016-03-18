@@ -30,6 +30,10 @@ public class UserActivity extends Activity
     private String username = "";
     private String email = "";
     private String location = "";
+    ReviewAdapter adapter;
+	JSONArray reviewArray;
+	List<String> resultsList = new ArrayList<String>();
+	
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -53,22 +57,19 @@ public class UserActivity extends Activity
             reviewsArray = extras.getString("reviews");
 
         	if(reviewsArray != null) {
-        		try{
-            		JSONArray reviews = new JSONArray(reviewsArray);
-            		JSONObject review;
-            		//Log.d("Debug", "User Reviews from User Activity " + reviews.toString());
-            		ArrayList<String> items = new ArrayList<String>();
-            		for(int i = 0; i < reviews.length(); i++){
-            			review = reviews.getJSONObject(i);
-            			String text = review.getString("review");
-            			items.add(text);
-            		}
-            		ArrayAdapter<String> reviewsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, items);
-                	ListView reviewsListView = (ListView)findViewById(R.id.reviewsList);
-                	reviewsListView.setAdapter(reviewsAdapter);
-            	
-            	} catch (JSONException e){
-            		e.printStackTrace();
+                reviewsArray = extras.getString("reviews");
+                try{
+                	reviewArray =  new JSONArray(reviewsArray);
+                	for(int i = 0; i < reviewArray.length(); i++) {
+                        resultsList.add(reviewArray.getJSONObject(i).getString("review"));
+                    }	
+                } catch(JSONException e) {
+                    e.printStackTrace();
+                }
+            	if(reviewsArray != null) {        		
+            		ListView reviewsList = (ListView)findViewById(R.id.reviewsList);
+                    adapter = new ReviewAdapter(this,R.layout.review_list_item, reviewArray, resultsList);
+                    reviewsList.setAdapter(adapter);
             	}
         	}            
         }
