@@ -1,25 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="1">
+    android:orientation="vertical"
+    android:weightSum="1" >
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Boozr"
-        android:id="@+id/textView"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:text="Boozr"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
+        android:id="@+id/searchText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/searchText"
-        android:layout_marginTop="105dp"
-        android:layout_below="@+id/textView"
         android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView"
+        android:layout_marginTop="105dp"
         android:layout_toLeftOf="@+id/searchButton"
         android:hint="Search"
         android:inputType="text" />
@@ -34,57 +35,58 @@
         android:text="Search" />
 
     <Button
+        android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="User Profile"
-        android:id="@+id/button3"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:onClick="loadUserProfile" />
+        android:onClick="loadUserProfile"
+        android:text="User Profile" />
 
     <Button
+        android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Logout"
-        android:id="@+id/button4"
         android:layout_alignBottom="@+id/button3"
         android:layout_alignParentRight="true"
-        android:onClick="logout" />
+        android:onClick="logout"
+        android:text="Logout" />
 
     <RadioGroup
+        android:id="@+id/radioGroup1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/searchText"
         android:layout_alignParentLeft="true"
-        android:onClick="searchTypeSelect">
+        android:layout_below="@+id/searchText"
+        android:onClick="searchTypeSelect" >
 
         <RadioButton
+            android:id="@+id/beerRadio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Beer"
-            android:id="@+id/beerRadio"
             android:checked="true"
             android:clickable="true"
-            android:onClick="searchTypeSelect" />
+            android:onClick="searchTypeSelect"
+            android:text="Beer" />
 
         <RadioButton
+            android:id="@+id/userRadio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="User"
-            android:id="@+id/userRadio"
             android:clickable="true"
-            android:onClick="searchTypeSelect" />
+            android:onClick="searchTypeSelect"
+            android:text="User" />
     </RadioGroup>
 
     <Button
+        android:id="@+id/button7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Advanced Search"
-        android:id="@+id/button7"
-        android:onClick="advancedSearch"
-        android:layout_below="@+id/searchText"
+        android:layout_alignEnd="@+id/button4"
         android:layout_alignRight="@+id/button4"
-        android:layout_alignEnd="@+id/button4" />
+        android:layout_below="@+id/searchText"
+        android:onClick="advancedSearch"
+        android:text="Advanced Search" />
 
     <Button
         android:id="@+id/Button01"
@@ -94,5 +96,15 @@
         android:layout_centerHorizontal="true"
         android:onClick="editUserProfile"
         android:text="Edit Account" />
+
+    <Button
+        android:id="@+id/topDrinks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/radioGroup1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="19dp"
+        android:onClick="topDrinks"
+        android:text="Top Drinks" />
 
 </RelativeLayout>

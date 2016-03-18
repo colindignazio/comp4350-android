@@ -208,6 +208,42 @@ public class HomeActivity extends Activity
 		Intent createAccountIntent = new Intent(HomeActivity.this, CreateAccountActivity.class);
 		HomeActivity.this.startActivity(createAccountIntent);
 	}
+	
+	public void topDrinks(View v){
+		Intent topDrinksIntent = new Intent(HomeActivity.this, SearchResultsActivity.class);
+		try {
+			String result = new API().execute("beer/getTopDrinks").get();
+			try {
+				JSONObject jsonObject = new JSONObject(result);
+				String status = jsonObject.getString("status");
+				if(status.equals("200")) {
+					//User search results
+					topDrinksIntent.putExtra("results", jsonObject.getString("results"));
+					topDrinksIntent.putExtra("resultType", "Beer");
+					HomeActivity.this.startActivity(topDrinksIntent);
+				} else if(status.equals("400")) {
+					//No results found
+					new AlertDialog.Builder(HomeActivity.this)
+							.setTitle("Error")
+							.setMessage("Server not responding")
+							.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+								public void onClick(DialogInterface dialog, int which) {
+									// dismiss
+								}
+							})
+							.setIcon(android.R.drawable.ic_dialog_alert)
+							.show();
+				}
+			} catch(JSONException e) {
+				e.printStackTrace();
+			}
+		} catch(InterruptedException e) {
+
+		} catch(ExecutionException e) {
+			e.printStackTrace();
+		}	
+		
+	}
 
 	public void logout(View v) {
 		try {
