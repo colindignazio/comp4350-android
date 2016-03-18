@@ -12,7 +12,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.ListView;
 import android.widget.ArrayAdapter;
-
 import java.util.ArrayList;
 
 import org.json.*;
