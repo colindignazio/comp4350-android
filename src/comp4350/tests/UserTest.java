@@ -1,5 +1,4 @@
 package comp4350.tests;
-
 import com.robotium.solo.Solo;
 
 import android.test.ActivityInstrumentationTestCase2;

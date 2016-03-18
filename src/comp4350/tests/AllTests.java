@@ -2,7 +2,6 @@ package comp4350.tests;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
-import comp4350.tests.business.SomethingToTestTest;
 
 public class AllTests
 {

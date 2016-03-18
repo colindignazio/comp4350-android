@@ -1,5 +1,4 @@
 package comp4350.tests;
-
 import com.robotium.solo.Solo;
 
 import android.test.ActivityInstrumentationTestCase2;
@@ -35,5 +34,18 @@ public class SearchTest extends ActivityInstrumentationTestCase2<HomeActivity> {
 		
 		solo.clickInList(0, 0); 
 		assertTrue(solo.waitForText("e2euser@gmail.com"));
+	}
+	
+	public void testBeerSearch() throws Exception {
+		solo.assertCurrentActivity("wrong activity", HomeActivity.class);
+		solo.enterText((EditText) solo.getView(R.id.searchText),"nosuchbeer");
+		solo.clickOnView(solo.getView(R.id.beerRadio));
+		solo.clickOnView(solo.getView(R.id.button));
+
+		solo.assertCurrentActivity("wrong activity", HomeActivity.class);
+		assertTrue(solo.waitForText("Your search query didn't return any results"));
+		
+		//solo.clickInList(0, 0); 
+		//assertTrue(solo.waitForText("e2euser@gmail.com"));
 	}
 }
