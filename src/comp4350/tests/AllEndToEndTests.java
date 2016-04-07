@@ -3,7 +3,7 @@ package comp4350.tests;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
-public class AllTests
+public class AllEndToEndTests
 {
 	public static TestSuite suite;
 
@@ -14,8 +14,8 @@ public class AllTests
     }
 
     private static void testEndToEnd() {
-        suite.addTestSuite(SearchTest.class);
-        suite.addTestSuite(UserTest.class);
-        suite.addTestSuite(BeerTest.class);
+        suite.addTestSuite(SearchEndToEndTest.class);
+        suite.addTestSuite(UserEndToEndTest.class);
+        suite.addTestSuite(BeerEndToEndTest.class);
     }
 }

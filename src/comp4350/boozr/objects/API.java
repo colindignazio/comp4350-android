@@ -1,10 +1,11 @@
-package comp4350.boozr.business;
+package comp4350.boozr.objects;
 
 import java.net.HttpURLConnection;
 import java.net.*;
 import java.io.*;
 import java.util.*;
 import android.os.AsyncTask;
+import comp4350.boozr.business.APIUtils;
 
 public class API extends AsyncTask<String, Void, String> {
     private String apiUrl = "http://54.200.14.217/?/";
@@ -53,7 +54,7 @@ public class API extends AsyncTask<String, Void, String> {
             OutputStream os = conn.getOutputStream();
             BufferedWriter writer = new BufferedWriter(
                     new OutputStreamWriter(os, "UTF-8"));
-            writer.write(paramsToString(params));
+            writer.write(APIUtils.paramsToString(params));
 
             writer.flush();
             writer.close();
@@ -74,22 +75,5 @@ public class API extends AsyncTask<String, Void, String> {
         }
 
         return response;
-    }
-
-    private String paramsToString(HashMap<String, String> params) throws UnsupportedEncodingException {
-        StringBuilder result = new StringBuilder();
-        boolean first = true;
-        for(Map.Entry<String, String> entry : params.entrySet()){
-            if (first)
-                first = false;
-            else
-                result.append("&");
-            
-            result.append(URLEncoder.encode(entry.getKey(), "UTF-8"));
-            result.append("=");
-            result.append(URLEncoder.encode(entry.getValue(), "UTF-8"));
-        }
-
-        return result.toString();
     }
 }

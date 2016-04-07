@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 import comp4350.boozr.R;
-import comp4350.boozr.business.API;
+import comp4350.boozr.objects.API;
 
 public class UserActivity extends Activity
 {

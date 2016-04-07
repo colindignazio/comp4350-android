@@ -10,10 +10,10 @@ import comp4350.boozr.presentation.HomeActivity;
 import comp4350.boozr.presentation.SearchResultsActivity;
 import comp4350.boozr.presentation.UserActivity;
 
-public class UserTest extends ActivityInstrumentationTestCase2<HomeActivity> {
+public class UserEndToEndTest extends ActivityInstrumentationTestCase2<HomeActivity> {
 	private Solo solo;
 
-	public UserTest() {
+	public UserEndToEndTest() {
 		super(HomeActivity.class);
 	}
 

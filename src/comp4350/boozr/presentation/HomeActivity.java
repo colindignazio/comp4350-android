@@ -21,7 +21,8 @@ import android.app.*;
 import android.content.*;
 
 import comp4350.boozr.application.Main;
-import comp4350.boozr.business.API;
+import comp4350.boozr.objects.API;
+
 import org.json.*;
 
 public class HomeActivity extends Activity {

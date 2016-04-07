@@ -8,10 +8,10 @@ import comp4350.boozr.presentation.HomeActivity;
 import comp4350.boozr.presentation.SearchResultsActivity;
 import comp4350.boozr.presentation.UserActivity;
 
-public class SearchTest extends ActivityInstrumentationTestCase2<HomeActivity> {
+public class SearchEndToEndTest extends ActivityInstrumentationTestCase2<HomeActivity> {
 	private Solo solo;
 
-	public SearchTest() {
+	public SearchEndToEndTest() {
 		super(HomeActivity.class);
 	}
 

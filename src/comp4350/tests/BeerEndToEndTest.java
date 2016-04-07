@@ -7,10 +7,10 @@ import comp4350.boozr.R;
 import comp4350.boozr.presentation.CreateDrinkActivity;
 import comp4350.boozr.presentation.HomeActivity;
 
-public class BeerTest extends ActivityInstrumentationTestCase2<HomeActivity> {
+public class BeerEndToEndTest extends ActivityInstrumentationTestCase2<HomeActivity> {
     private Solo solo;
 
-    public BeerTest() {
+    public BeerEndToEndTest() {
         super(HomeActivity.class);
     }
 
