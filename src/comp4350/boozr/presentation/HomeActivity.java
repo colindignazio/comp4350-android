@@ -286,6 +286,7 @@ public class HomeActivity extends Activity {
 					//User found
 					JSONObject user = jsonObject.getJSONObject("user");
 					Intent userIntent = new Intent(HomeActivity.this, UserActivity.class);
+					userIntent.putExtra("userId", user.getString("User_id"));
 					userIntent.putExtra("username", user.getString("User_name"));
 					userIntent.putExtra("email", user.getString("User_email"));
 					userIntent.putExtra("location", user.getString("User_location"));
